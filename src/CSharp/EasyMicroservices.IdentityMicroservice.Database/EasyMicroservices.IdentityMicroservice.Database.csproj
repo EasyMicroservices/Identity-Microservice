@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>EasyMicroservices.IdentityMicroservice</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Database\Documents\" />
+    <Folder Include="Database\Entities\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+	  <PackageReference Include="EasyMicroservices.Configuration" Version="0.0.0.2" />
+	  <PackageReference Include="EasyMicroservices.Cores.Relational.EntityFrameworkCore" Version="0.0.0.45" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.13" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\EasyMicroservices.IdentityMicroservice.Domain\EasyMicroservices.IdentityMicroservice.Domain.csproj" />
+  </ItemGroup>
+  
+</Project>
