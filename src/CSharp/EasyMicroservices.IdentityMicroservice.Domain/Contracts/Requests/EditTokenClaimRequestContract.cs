@@ -1,4 +1,5 @@
 ﻿using Authentications.GeneratedServices;
+using EasyMicroservices.IdentityMicroservice.Contracts.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

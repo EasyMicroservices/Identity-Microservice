@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -6,15 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\Common\" />
     <Folder Include="Contracts\Requests\Filters\" />
-    <Folder Include="Contracts\Responses\" />
     <Folder Include="DataTypes\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyMicroservices.Cores.AspEntityFrameworkCoreApi" Version="0.0.0.45" />
-    <PackageReference Include="EasyMicroservices.Cores.Database" Version="0.0.0.45" />
+	  <PackageReference Include="EasyMicroservices.Cores.AspEntityFrameworkCoreApi" Version="0.0.0.49" />
+	  <PackageReference Include="EasyMicroservices.Cores.Database" Version="0.0.0.49" />
   </ItemGroup>
 
+	<ItemGroup>
+		<Reference Include="EasyMicroservices.AuthenticationsMicroservice.Clients">
+			<HintPath>..\..\..\..\Authentications-Microservice\src\CSharp\EasyMicroservices.AuthenticationsMicroservice.Clients\bin\Debug\net6.0\EasyMicroservices.AuthenticationsMicroservice.Clients.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 </Project>
