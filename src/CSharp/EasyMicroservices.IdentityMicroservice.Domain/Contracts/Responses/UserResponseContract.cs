@@ -2,9 +2,8 @@
 
 namespace EasyMicroservices.IdentityMicroservice.Contracts.Responses
 {
-    public class UserResponseContract : IUniqueIdentitySchema
+    public class UserResponseContract 
     {
         public string Token { get; set; }
-        public string UniqueIdentity { get; set; }
     }
 }

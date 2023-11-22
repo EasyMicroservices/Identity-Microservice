@@ -35,7 +35,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<MessageContract<bool>> VerifyUserName(VerifyEmailAddressContract request)
+        public async Task<ServiceContracts.MessageContract> VerifyUserName(VerifyUserRequestContract request)
         {
             var user = await _userClient.GetByIdAsync(new Int64GetIdRequestContract { Id = request.UserId });
 
@@ -62,19 +62,16 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<MessageContract<long>> Register(Contracts.Requests.AddUserRequestContract request)
+        public async Task<MessageContract<RegisterResponseContract>> Register(Contracts.Requests.AddUserRequestContract request)
         {
             return await _identityHelper.Register(request);
         }
 
         [HttpPost]
-        public async Task<MessageContract<long>> Login(Contracts.Common.UserSummaryContract request)
+        public async Task<MessageContract<LoginResponseContract>> Login(Contracts.Common.UserSummaryContract request)
         {
-            string password = await SecurityHelper.HashPassword(request.Password);
-            request.Password = password;
-
+            request.Password = await SecurityHelper.HashPassword(request.Password);
             var response = await _identityHelper.Login(request);
-
             return response;
         }
 

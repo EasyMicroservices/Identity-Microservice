@@ -15,17 +15,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/VerifyEmailAddressContract"
+                "$ref": "#/components/schemas/VerifyUserRequestContract"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/VerifyEmailAddressContract"
+                "$ref": "#/components/schemas/VerifyUserRequestContract"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/VerifyEmailAddressContract"
+                "$ref": "#/components/schemas/VerifyUserRequestContract"
               }
             }
           }
@@ -36,17 +36,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/BooleanMessageContract"
+                  "$ref": "#/components/schemas/MessageContract"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BooleanMessageContract"
+                  "$ref": "#/components/schemas/MessageContract"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BooleanMessageContract"
+                  "$ref": "#/components/schemas/MessageContract"
                 }
               }
             }
@@ -85,17 +85,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Int64MessageContract"
+                  "$ref": "#/components/schemas/RegisterResponseContractMessageContract"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Int64MessageContract"
+                  "$ref": "#/components/schemas/RegisterResponseContractMessageContract"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Int64MessageContract"
+                  "$ref": "#/components/schemas/RegisterResponseContractMessageContract"
                 }
               }
             }
@@ -134,17 +134,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Int64MessageContract"
+                  "$ref": "#/components/schemas/LoginResponseContractMessageContract"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Int64MessageContract"
+                  "$ref": "#/components/schemas/LoginResponseContractMessageContract"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Int64MessageContract"
+                  "$ref": "#/components/schemas/LoginResponseContractMessageContract"
                 }
               }
             }
@@ -267,25 +267,6 @@
           }
         }
       },
-      "BooleanMessageContract": {
-        "title": "MessageContract<Boolean>",
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "isSuccess": {
-            "type": "boolean"
-          },
-          "error": {
-            "$ref": "#/components/schemas/ErrorContract"
-          },
-          "success": {
-            "$ref": "#/components/schemas/SuccessContract"
-          },
-          "result": {
-            "type": "boolean"
-          }
-        }
-      },
       "ClaimContract": {
         "type": "object",
         "additionalProperties": false,
@@ -390,8 +371,18 @@
           16
         ]
       },
-      "Int64MessageContract": {
-        "title": "MessageContract<Int64>",
+      "LoginResponseContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "LoginResponseContractMessageContract": {
+        "title": "MessageContract<LoginResponseContract>",
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -405,8 +396,22 @@
             "$ref": "#/components/schemas/SuccessContract"
           },
           "result": {
-            "type": "integer",
-            "format": "int64"
+            "$ref": "#/components/schemas/LoginResponseContract"
+          }
+        }
+      },
+      "MessageContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "isSuccess": {
+            "type": "boolean"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorContract"
+          },
+          "success": {
+            "$ref": "#/components/schemas/SuccessContract"
           }
         }
       },
@@ -425,6 +430,35 @@
             "items": {
               "$ref": "#/components/schemas/ClaimContract"
             }
+          }
+        }
+      },
+      "RegisterResponseContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "RegisterResponseContractMessageContract": {
+        "title": "MessageContract<RegisterResponseContract>",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "isSuccess": {
+            "type": "boolean"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorContract"
+          },
+          "success": {
+            "$ref": "#/components/schemas/SuccessContract"
+          },
+          "result": {
+            "$ref": "#/components/schemas/RegisterResponseContract"
           }
         }
       },
@@ -489,10 +523,6 @@
           "token": {
             "type": "string",
             "nullable": true
-          },
-          "uniqueIdentity": {
-            "type": "string",
-            "nullable": true
           }
         }
       },
@@ -539,7 +569,7 @@
           }
         }
       },
-      "VerifyEmailAddressContract": {
+      "VerifyUserRequestContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {

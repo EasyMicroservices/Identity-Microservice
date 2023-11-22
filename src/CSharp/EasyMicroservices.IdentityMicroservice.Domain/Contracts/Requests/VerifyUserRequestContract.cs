@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EasyMicroservices.IdentityMicroservice.Contracts.Requests
 {
-    public class VerifyEmailAddressContract
+    public class VerifyUserRequestContract
     {
         public long UserId { get; set; }
     }

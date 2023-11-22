@@ -14,10 +14,4 @@
 	  <PackageReference Include="EasyMicroservices.Cores.AspEntityFrameworkCoreApi" Version="0.0.0.49" />
 	  <PackageReference Include="EasyMicroservices.Cores.Database" Version="0.0.0.49" />
   </ItemGroup>
-
-	<ItemGroup>
-		<Reference Include="EasyMicroservices.AuthenticationsMicroservice.Clients">
-			<HintPath>..\..\..\..\Authentications-Microservice\src\CSharp\EasyMicroservices.AuthenticationsMicroservice.Clients\bin\Debug\net6.0\EasyMicroservices.AuthenticationsMicroservice.Clients.dll</HintPath>
-		</Reference>
-	</ItemGroup>
 </Project>
