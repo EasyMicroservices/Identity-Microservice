@@ -8,6 +8,8 @@ using EasyMicroservices.ServiceContracts;
 using Authentications.GeneratedServices;
 using EasyMicroservices.IdentityMicroservice.Contracts.Requests;
 using System.Collections.Generic;
+using EasyMicroservices.IdentityMicroservice.Contracts.Common;
+using EasyMicroservices.IdentityMicroservice.Contracts.Responses;
 
 namespace EasyMicroservices.IdentityMicroservice.Interfaces
 {

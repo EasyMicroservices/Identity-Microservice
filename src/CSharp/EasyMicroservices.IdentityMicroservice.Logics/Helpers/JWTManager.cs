@@ -15,8 +15,10 @@ using System.Threading.Tasks;
 using Authentications.GeneratedServices;
 using FailedReasonType = EasyMicroservices.ServiceContracts.FailedReasonType;
 using System.Collections.Generic;
+using EasyMicroservices.IdentityMicroservice.Contracts.Responses;
+using EasyMicroservices.IdentityMicroservice.Contracts.Common;
 
-namespace EasyMicroservices.IdentityMicroservice
+namespace EasyMicroservices.IdentityMicroservice.Services
 {
     public class JWTManager : IJWTManager
     {
@@ -31,7 +33,7 @@ namespace EasyMicroservices.IdentityMicroservice
             _userClient = new(_authRoot, new System.Net.Http.HttpClient());
         }
 
-        public virtual async Task<MessageContract<UserResponseContract>> GenerateTokenWithClaims(List<ClaimContract> claims)
+        public async Task<MessageContract<UserResponseContract>> GenerateTokenWithClaims(List<ClaimContract> claims)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.UTF8.GetBytes(_config.GetValue<string>("JWT:Key"));
@@ -52,7 +54,7 @@ namespace EasyMicroservices.IdentityMicroservice
             };
         }
 
-        public virtual async Task<MessageContract<UserResponseContract>> EditTokenClaims(EditTokenClaimRequestContract request)
+        public async Task<MessageContract<UserResponseContract>> EditTokenClaims(EditTokenClaimRequestContract request)
         {
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             JwtSecurityToken securityToken = (JwtSecurityToken)tokenHandler.ReadToken(request.Token);
@@ -86,7 +88,7 @@ namespace EasyMicroservices.IdentityMicroservice
         }
 
 
-        public virtual async Task<ListMessageContract<ClaimContract>> GetClaimsFromToken(string token)
+        public async Task<ListMessageContract<ClaimContract>> GetClaimsFromToken(string token)
         {
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             JwtSecurityToken securityToken = (JwtSecurityToken)tokenHandler.ReadToken(token);

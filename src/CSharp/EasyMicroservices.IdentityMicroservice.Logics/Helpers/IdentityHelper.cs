@@ -1,11 +1,13 @@
-﻿//using Authentications.GeneratedServices;
-using Authentications.GeneratedServices;
-using EasyMicroservices.AuthenticationsMicroservice.Clients;
+﻿using Authentications.GeneratedServices;
+using EasyMicroservices.IdentityMicroservice.Contracts.Common;
+using EasyMicroservices.IdentityMicroservice.Contracts.Responses;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
 using EasyMicroservices.ServiceContracts;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -28,20 +30,55 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
             _userClient = new(_authRoot, new System.Net.Http.HttpClient());
         }
 
-        //public virtual async Task<MessageContract<long>> Register(AddUserRequestContract input)
-        //{
-        //    string Password = input.Password;
-        //    input.Password = await SecurityHelper.HashPassword(input.Password);
 
-        //    //var logic = _unitOfWork.GetLongContractLogic<UserEntity, AddUserRequestContract, UserContract, UserContract>();
-        //    //var usersRecords = await logic.GetBy(x => x.UserName == input.UserName.ToLower());
+        public async Task<MessageContract<RegisterResponseContract>> Register(Contracts.Requests.AddUserRequestContract request)
+        {
+            request.Password = await SecurityHelper.HashPassword(request.Password);
 
-        //    //if (usersRecords.IsSuccess)
-        //    //    return (FailedReasonType.Duplicate, "User already exists!");
+            var usersRecords = await _userClient.GetUserByUserNameAsync(new GetUserByUserNameRequestContract { Username = request.UserName.ToLower()});
 
-        //    //var user = await logic.Add(input);
+            if (usersRecords.IsSuccess)
+                return (ServiceContracts.FailedReasonType.Duplicate, "User already exists!");
 
-        //    return user;
-        //}
+            var user = await _userClient.AddAsync(new AddUserRequestContract
+            {
+                UserName = request.UserName,
+                Password = request.Password
+            });
+
+            return new RegisterResponseContract
+            {
+                UserId = user.Result,
+            };
+        }
+
+        public virtual async Task<MessageContract<LoginResponseContract>> Login(Contracts.Common.UserSummaryContract cred)
+        {
+            var user = await _userClient.VerifyUserIdentityAsync(new Authentications.GeneratedServices.UserSummaryContract { UserName = cred.UserName, Password = cred.Password});
+            if (!user.IsSuccess)
+                return (ServiceContracts.FailedReasonType.Incorrect, "Username or password is invalid."); //"Username or password is invalid."
+
+
+            return new LoginResponseContract {
+                UserId = user.Result.Id
+            }; 
+        }
+
+        public virtual async Task<MessageContract<UserResponseContract>> GenerateToken(UserClaimContract cred)
+        {
+            var response = await Login(cred);
+            if (!response)
+                return response.ToContract<UserResponseContract>();
+
+            var user = await _userClient.VerifyUserIdentityAsync(new Authentications.GeneratedServices.UserSummaryContract { UserName = cred.UserName, Password = cred.Password });
+
+            var token = await _jwtManager.GenerateTokenWithClaims(cred.Claims);
+
+            return new UserResponseContract
+            {
+                Token = token.Result.Token
+            };
+        }
+
     }
 }

@@ -8,7 +8,7 @@
     "ServiceName": "IdentityGeneratedServices",
     "AcceptAllUntrustedCertificates": true,
     "GeneratedFileName": "OpenAPI",
-    "Endpoint": "http://localhost:1042/swagger/v1/swagger.json",
+    "Endpoint": "http://localhost:2007/swagger/v1/swagger.json",
     "GeneratedFileNamePrefix": null,
     "GenerateCSharpClient": true,
     "GenerateTypeScriptClient": false,

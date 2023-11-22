@@ -2,6 +2,8 @@ using EasyMicroservices.IdentityMicroservice.Database.Contexts;
 using EasyMicroservices.Cores.AspEntityFrameworkCoreApi;
 using EasyMicroservices.Cores.Relational.EntityFrameworkCore.Intrerfaces;
 using EasyMicroservices.IdentityMicroservice;
+using EasyMicroservices.IdentityMicroservice.Interfaces;
+using EasyMicroservices.IdentityMicroservice.Helpers;
 
 namespace EasyMicroservices.IdentityMicroservice.WebApi
 {
@@ -22,7 +24,8 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
             app.Services.AddTransient((serviceProvider) => new UnitOfWork(serviceProvider));
             app.Services.AddTransient(serviceProvider => new IdentityContext(serviceProvider.GetService<IEntityFrameworkCoreDatabaseBuilder>()));
             app.Services.AddTransient<IEntityFrameworkCoreDatabaseBuilder, DatabaseBuilder>();
-            StartUpExtensions.AddWhiteLabel("Questions", "RootAddresses:WhiteLabel");
+            app.Services.AddTransient<IAppUnitOfWork, AppUnitOfWork>();
+            StartUpExtensions.AddWhiteLabel("Identity", "RootAddresses:WhiteLabel");
             return app;
         }
 
