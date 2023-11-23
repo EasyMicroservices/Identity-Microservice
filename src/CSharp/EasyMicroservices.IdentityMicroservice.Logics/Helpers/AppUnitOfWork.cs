@@ -11,6 +11,7 @@ using EasyMicroservices.Cores.AspEntityFrameworkCoreApi;
 using EasyMicroservices.IdentityMicroservice.Helpers;
 using EasyMicroservices.IdentityMicroservice.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Authentications.GeneratedServices;
 
 namespace EasyMicroservices.IdentityMicroservice.Helpers
 {
@@ -26,6 +27,13 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
         {
             return _service.GetService<IConfiguration>();
         }
+        
+
+        public UsersClient GetUsersClient()
+        {
+            return _service.GetService<UsersClient>();
+        }
+
 
         public IdentityHelper GetIdentityHelper()
         {

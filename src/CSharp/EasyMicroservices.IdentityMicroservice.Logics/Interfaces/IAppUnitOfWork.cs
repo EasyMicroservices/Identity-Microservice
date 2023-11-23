@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using System.Threading;
 using System.Threading.Tasks;
 using EasyMicroservices.IdentityMicroservice.Helpers;
+using Authentications.GeneratedServices;
 
 namespace EasyMicroservices.IdentityMicroservice.Interfaces
 {
@@ -15,6 +16,7 @@ namespace EasyMicroservices.IdentityMicroservice.Interfaces
     {
         public IJWTManager GetIJWTManager();
         public IConfiguration GetConfiguration();
+        public UsersClient GetUsersClient();
         public IdentityHelper GetIdentityHelper();
     }
 }
