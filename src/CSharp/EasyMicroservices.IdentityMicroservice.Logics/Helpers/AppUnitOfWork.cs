@@ -10,18 +10,21 @@ using EasyMicroservices.IdentityMicroservice.Interfaces;
 using EasyMicroservices.Cores.AspEntityFrameworkCoreApi;
 using EasyMicroservices.IdentityMicroservice.Helpers;
 using EasyMicroservices.IdentityMicroservice.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyMicroservices.IdentityMicroservice.Helpers
 {
     public class AppUnitOfWork : UnitOfWork, IAppUnitOfWork
     {
+        public IServiceProvider _service;
         public AppUnitOfWork(IServiceProvider service) : base(service)
         {
+            _service = service;
         }
 
         public IConfiguration GetConfiguration()
         {
-            return new ConfigurationBuilder().AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
+            return _service.GetService<IConfiguration>();
         }
 
         public IdentityHelper GetIdentityHelper()
