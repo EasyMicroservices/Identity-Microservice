@@ -18,14 +18,19 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
     [Route("api/[controller]/[action]")]
     public class IdentityController : ControllerBase
     {
+        private readonly IConfiguration _config;
         private readonly UsersClient _userClient;
+        private readonly IJWTManager _jwtManager;
         private readonly IdentityHelper _identityHelper;
         private readonly IAppUnitOfWork _appUnitOfWork;
+        private readonly string _authRoot;
 
         public IdentityController(IAppUnitOfWork appUnitOfWork)
         {
             _appUnitOfWork = appUnitOfWork;
-            _userClient = _appUnitOfWork.GetUsersClient();
+            _config = _appUnitOfWork.GetConfiguration();
+            _authRoot = _config.GetValue<string>("RootAddresses:Authentications");
+            _userClient = new(_authRoot, new System.Net.Http.HttpClient());
             _identityHelper = _appUnitOfWork.GetIdentityHelper();
         }
 

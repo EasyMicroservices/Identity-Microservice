@@ -27,13 +27,6 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
         {
             return _service.GetService<IConfiguration>();
         }
-        
-
-        public UsersClient GetUsersClient()
-        {
-            return _service.GetService<UsersClient>();
-        }
-
 
         public IdentityHelper GetIdentityHelper()
         {

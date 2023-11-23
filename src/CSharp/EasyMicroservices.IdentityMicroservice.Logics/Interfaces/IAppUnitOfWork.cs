@@ -16,7 +16,6 @@ namespace EasyMicroservices.IdentityMicroservice.Interfaces
     {
         public IJWTManager GetIJWTManager();
         public IConfiguration GetConfiguration();
-        public UsersClient GetUsersClient();
         public IdentityHelper GetIdentityHelper();
     }
 }

@@ -4,7 +4,6 @@ using EasyMicroservices.Cores.Relational.EntityFrameworkCore.Intrerfaces;
 using EasyMicroservices.IdentityMicroservice;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
 using EasyMicroservices.IdentityMicroservice.Helpers;
-using Authentications.GeneratedServices;
 
 namespace EasyMicroservices.IdentityMicroservice.WebApi
 {
@@ -26,9 +25,6 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
             app.Services.AddTransient(serviceProvider => new IdentityContext(serviceProvider.GetService<IEntityFrameworkCoreDatabaseBuilder>()));
             app.Services.AddTransient<IEntityFrameworkCoreDatabaseBuilder, DatabaseBuilder>();
             app.Services.AddTransient<IAppUnitOfWork, AppUnitOfWork>();
-
-            app.Services.AddSingleton(sp => new UsersClient(sp.GetService<IConfiguration>().GetValue<string>("RootAddresses:Authentications"), sp.GetService<HttpClient>()));
-
             StartUpExtensions.AddWhiteLabel("Identity", "RootAddresses:WhiteLabel");
             return app;
         }
