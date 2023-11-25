@@ -1,29 +1,26 @@
-﻿using EasyMicroservices.IdentityMicroservice.Contracts.Requests;
-using EasyMicroservices.IdentityMicroservice.Helpers;
+﻿using Authentications.GeneratedServices;
+using EasyMicroservices.IdentityMicroservice.Contracts.Common;
+using EasyMicroservices.IdentityMicroservice.Contracts.Requests;
+using EasyMicroservices.IdentityMicroservice.Contracts.Responses;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
-using EasyMicroservices.Cores.AspEntityFrameworkCoreApi.Interfaces;
-using EasyMicroservices.Cores.Database.Interfaces;
 using EasyMicroservices.ServiceContracts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using Authentications.GeneratedServices;
 using FailedReasonType = EasyMicroservices.ServiceContracts.FailedReasonType;
-using System.Collections.Generic;
-using EasyMicroservices.IdentityMicroservice.Contracts.Responses;
-using EasyMicroservices.IdentityMicroservice.Contracts.Common;
 
 namespace EasyMicroservices.IdentityMicroservice.Services
 {
     public class JWTManager : IJWTManager
     {
         private readonly IConfiguration _config;
-        private readonly UsersClient _userClient;
+        private readonly UserClient _userClient;
         private readonly string _authRoot;
 
         public JWTManager(IConfiguration config)

@@ -1,17 +1,14 @@
 ﻿
-using Microsoft.Extensions.Configuration;
-using System;
-using EasyMicroservices.IdentityMicroservice;
-using System.Threading.Tasks;
-using System.Threading;
-using Microsoft.AspNetCore.Http;
-using System.Security.Cryptography.Xml;
-using EasyMicroservices.IdentityMicroservice.Interfaces;
-using EasyMicroservices.Cores.AspEntityFrameworkCoreApi;
-using EasyMicroservices.IdentityMicroservice.Helpers;
-using EasyMicroservices.IdentityMicroservice.Services;
-using Microsoft.Extensions.DependencyInjection;
 using Authentications.GeneratedServices;
+using EasyMicroservices.Cores.AspEntityFrameworkCoreApi;
+using EasyMicroservices.Cores.Clients;
+using EasyMicroservices.IdentityMicroservice.Interfaces;
+using EasyMicroservices.IdentityMicroservice.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Linq;
 
 namespace EasyMicroservices.IdentityMicroservice.Helpers
 {
@@ -36,6 +33,31 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
         public IJWTManager GetIJWTManager()
         {
             return new JWTManager(GetConfiguration());
+        }
+
+        T SetToken<T>(HttpContext httpContext, T coreSwaggerClient)
+            where T : CoreSwaggerClientBase
+        {
+            if (httpContext.Request.Headers.Authorization.Count > 0)
+            {
+                coreSwaggerClient.SetBearerToken(httpContext.Request.Headers.Authorization.First());
+            }
+            return coreSwaggerClient;
+        }
+
+        string GetRouteAddress()
+        {
+            return GetConfiguration().GetValue<string>("RootAddresses:Authentications");
+        }
+
+        public UserClient GetUserClient(HttpContext httpContext)
+        {
+            return SetToken(httpContext, new UserClient(GetRouteAddress(), new System.Net.Http.HttpClient()));
+        }
+
+        public RoleClient GetRoleClient(HttpContext httpContext)
+        {
+            return SetToken(httpContext, new RoleClient(GetRouteAddress(), new System.Net.Http.HttpClient()));
         }
     }
 }
