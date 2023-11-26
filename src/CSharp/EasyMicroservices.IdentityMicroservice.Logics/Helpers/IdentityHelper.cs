@@ -26,8 +26,6 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
 
         public async Task<MessageContract<RegisterResponseContract>> Register(Contracts.Requests.AddUserRequestContract request)
         {
-            request.Password = await SecurityHelper.HashPassword(request.Password);
-
             var usersRecords = await _userClient.GetUserByUserNameAsync(new GetUserByUserNameRequestContract { Username = request.UserName.ToLower() });
 
             if (usersRecords.IsSuccess)

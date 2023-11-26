@@ -63,7 +63,6 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         [HttpPost]
         public async Task<MessageContract<LoginResponseContract>> Login(Contracts.Common.UserSummaryContract request)
         {
-            request.Password = await SecurityHelper.HashPassword(request.Password);
             var response = await _identityHelper.Login(request);
             return response;
         }
@@ -71,9 +70,6 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         [HttpPost]
         public async Task<MessageContract<UserResponseContract>> GenerateToken(UserClaimContract request)
         {
-            string password = await SecurityHelper.HashPassword(request.Password);
-            request.Password = password;
-
             var response = await _identityHelper.GenerateToken(request);
 
             return response;
