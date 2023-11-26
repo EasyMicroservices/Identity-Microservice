@@ -4,13 +4,6 @@ using EasyMicroservices.IdentityMicroservice.Contracts.Responses;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
 using EasyMicroservices.ServiceContracts;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace EasyMicroservices.IdentityMicroservice.Helpers
@@ -35,7 +28,7 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
         {
             request.Password = await SecurityHelper.HashPassword(request.Password);
 
-            var usersRecords = await _userClient.GetUserByUserNameAsync(new GetUserByUserNameRequestContract { Username = request.UserName.ToLower()});
+            var usersRecords = await _userClient.GetUserByUserNameAsync(new GetUserByUserNameRequestContract { Username = request.UserName.ToLower() });
 
             if (usersRecords.IsSuccess)
                 return (ServiceContracts.FailedReasonType.Duplicate, "User already exists!");
@@ -54,14 +47,15 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
 
         public virtual async Task<MessageContract<LoginResponseContract>> Login(Contracts.Common.UserSummaryContract cred)
         {
-            var user = await _userClient.VerifyUserIdentityAsync(new Authentications.GeneratedServices.UserSummaryContract { UserName = cred.UserName, Password = cred.Password});
+            var user = await _userClient.VerifyUserIdentityAsync(new Authentications.GeneratedServices.UserSummaryContract { UserName = cred.UserName, Password = cred.Password });
             if (!user.IsSuccess)
                 return (ServiceContracts.FailedReasonType.Incorrect, "Username or password is invalid."); //"Username or password is invalid."
 
 
-            return new LoginResponseContract {
+            return new LoginResponseContract
+            {
                 UserId = user.Result.Id
-            }; 
+            };
         }
 
         public virtual async Task<MessageContract<UserResponseContract>> GenerateToken(UserClaimContract cred)
@@ -79,6 +73,5 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
                 Token = token.Result.Token
             };
         }
-
     }
 }
