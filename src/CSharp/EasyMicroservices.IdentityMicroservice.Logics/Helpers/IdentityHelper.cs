@@ -11,7 +11,7 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
     public class IdentityHelper
     {
         private readonly IConfiguration _config;
-        private readonly UsersClient _userClient;
+        private readonly UserClient _userClient;
         private readonly IJWTManager _jwtManager;
         private readonly string _authRoot;
 
@@ -58,15 +58,9 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
             };
         }
 
-        public virtual async Task<MessageContract<UserResponseContract>> GenerateToken(UserClaimContract cred)
+        public virtual async Task<MessageContract<UserResponseContract>> GenerateToken(UserClaimContract userClaim)
         {
-            var response = await Login(cred);
-            if (!response)
-                return response.ToContract<UserResponseContract>();
-
-            var user = await _userClient.VerifyUserIdentityAsync(new Authentications.GeneratedServices.UserSummaryContract { UserName = cred.UserName, Password = cred.Password });
-
-            var token = await _jwtManager.GenerateTokenWithClaims(cred.Claims);
+            var token = await _jwtManager.GenerateTokenWithClaims(userClaim.Claims);
 
             return new UserResponseContract
             {
