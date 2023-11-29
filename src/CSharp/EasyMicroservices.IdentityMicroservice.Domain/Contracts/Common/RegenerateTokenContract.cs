@@ -8,7 +8,6 @@ namespace EasyMicroservices.IdentityMicroservice.Contracts.Common
 {
     public class RegenerateTokenContract
     {
-        public long UserId { get; set; }
         public List<ClaimContract> Claims { get; set; }
     }
 }

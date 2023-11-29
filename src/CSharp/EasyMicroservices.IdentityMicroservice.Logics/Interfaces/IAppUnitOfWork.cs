@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using EasyMicroservices.IdentityMicroservice.Helpers;
 using Authentications.GeneratedServices;
+using Contents.GeneratedServices;
 
 namespace EasyMicroservices.IdentityMicroservice.Interfaces
 {
@@ -17,6 +18,8 @@ namespace EasyMicroservices.IdentityMicroservice.Interfaces
         public IJWTManager GetIJWTManager();
         public IConfiguration GetConfiguration();
         public IdentityHelper GetIdentityHelper();
+        public LanguageClient GetLanguageClient();
+        public ClaimManager GetClaimManager();
         public UserClient GetUserClient(HttpContext httpContext);
         public RoleClient GetRoleClient(HttpContext httpContext);
     }
