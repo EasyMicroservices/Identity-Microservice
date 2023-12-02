@@ -82,7 +82,7 @@
       "HandleReferences": false,
       "GenerateImmutableArrayProperties": false,
       "GenerateImmutableDictionaryProperties": false,
-      "JsonSerializerSettingsTransformationMethod": "new EasyMicroservices.IdentityMicroservice.Clients.MyJsonSerializerSettings",
+      "JsonSerializerSettingsTransformationMethod": "new EasyMicroservices.Cores.Clients.CoreSerializerSettings",
       "InlineNamedArrays": false,
       "InlineNamedDictionaries": false,
       "InlineNamedTuples": true,
