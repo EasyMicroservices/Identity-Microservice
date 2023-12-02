@@ -250,10 +250,10 @@
         }
       }
     },
-    "/api/Identity/ApplicationInitialize": {
+    "/api/Authentication/ApplicationInitialize": {
       "post": {
         "tags": [
-          "Identity"
+          "Authentication"
         ],
         "operationId": "ApplicationInitialize",
         "requestBody": {
@@ -292,55 +292,6 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ApplicationInitializeResponseContractMessageContract"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Identity/LoginByPersonalAccessToken": {
-      "post": {
-        "tags": [
-          "Identity"
-        ],
-        "operationId": "LoginByPersonalAccessToken",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginByPersonalAccessTokenRequestContract"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginByPersonalAccessTokenRequestContract"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginByPersonalAccessTokenRequestContract"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserResponseContractMessageContract"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserResponseContractMessageContract"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserResponseContractMessageContract"
                 }
               }
             }
@@ -561,16 +512,6 @@
         ]
       },
       "LoginByPersonalAccessTokenRequestContract": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "personalAccessToken": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "LoginResponseContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
