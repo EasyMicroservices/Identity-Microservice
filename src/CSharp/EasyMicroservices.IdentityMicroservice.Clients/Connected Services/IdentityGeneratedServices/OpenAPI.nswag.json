@@ -5,10 +5,10 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Identity/VerifyUserName": {
+    "/api/Authentication/VerifyUserName": {
       "post": {
         "tags": [
-          "Identity"
+          "Authentication"
         ],
         "operationId": "VerifyUserName",
         "requestBody": {
@@ -54,10 +54,10 @@
         }
       }
     },
-    "/api/Identity/Register": {
+    "/api/Authentication/Register": {
       "post": {
         "tags": [
-          "Identity"
+          "Authentication"
         ],
         "operationId": "Register",
         "requestBody": {
@@ -103,10 +103,10 @@
         }
       }
     },
-    "/api/Identity/Login": {
+    "/api/Authentication/Login": {
       "post": {
         "tags": [
-          "Identity"
+          "Authentication"
         ],
         "operationId": "Login",
         "requestBody": {
@@ -152,10 +152,10 @@
         }
       }
     },
-    "/api/Identity/GenerateToken": {
+    "/api/Authentication/GenerateToken": {
       "post": {
         "tags": [
-          "Identity"
+          "Authentication"
         ],
         "operationId": "GenerateToken",
         "requestBody": {
@@ -201,10 +201,10 @@
         }
       }
     },
-    "/api/Identity/RegenerateToken": {
+    "/api/Authentication/RegenerateToken": {
       "post": {
         "tags": [
-          "Identity"
+          "Authentication"
         ],
         "operationId": "RegenerateToken",
         "requestBody": {
@@ -250,10 +250,10 @@
         }
       }
     },
-    "/api/Identity/ApplicationInitialize": {
+    "/api/Authentication/ApplicationInitialize": {
       "post": {
         "tags": [
-          "Identity"
+          "Authentication"
         ],
         "operationId": "ApplicationInitialize",
         "requestBody": {
@@ -299,10 +299,10 @@
         }
       }
     },
-    "/api/Identity/LoginByPersonalAccessToken": {
+    "/api/Authentication/LoginByPersonalAccessToken": {
       "post": {
         "tags": [
-          "Identity"
+          "Authentication"
         ],
         "operationId": "LoginByPersonalAccessToken",
         "requestBody": {

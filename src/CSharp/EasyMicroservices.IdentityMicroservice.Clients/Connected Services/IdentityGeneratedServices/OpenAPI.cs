@@ -19,13 +19,13 @@ namespace Identity.GeneratedServices
     using System = global::System;
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.3.0))")]
-    public partial class IdentityClient 
+    public partial class AuthenticationClient : EasyMicroservices.Cores.Clients.CoreSwaggerClientBase
     {
         private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
 
-        public IdentityClient(string baseUrl, System.Net.Http.HttpClient httpClient)
+        public AuthenticationClient(string baseUrl, System.Net.Http.HttpClient httpClient)
         {
             BaseUrl = baseUrl;
             _httpClient = httpClient;
@@ -66,13 +66,13 @@ namespace Identity.GeneratedServices
         public virtual async System.Threading.Tasks.Task<MessageContract> VerifyUserNameAsync(VerifyUserRequestContract body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Identity/VerifyUserName");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Authentication/VerifyUserName");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value);
                     var content_ = new System.Net.Http.StringContent(json_);
@@ -144,13 +144,13 @@ namespace Identity.GeneratedServices
         public virtual async System.Threading.Tasks.Task<RegisterResponseContractMessageContract> RegisterAsync(AddUserRequestContract body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Identity/Register");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Authentication/Register");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value);
                     var content_ = new System.Net.Http.StringContent(json_);
@@ -222,13 +222,13 @@ namespace Identity.GeneratedServices
         public virtual async System.Threading.Tasks.Task<LoginWithTokenResponseContractMessageContract> LoginAsync(UserSummaryContract body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Identity/Login");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Authentication/Login");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value);
                     var content_ = new System.Net.Http.StringContent(json_);
@@ -300,13 +300,13 @@ namespace Identity.GeneratedServices
         public virtual async System.Threading.Tasks.Task<UserResponseContractMessageContract> GenerateTokenAsync(UserClaimContract body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Identity/GenerateToken");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Authentication/GenerateToken");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value);
                     var content_ = new System.Net.Http.StringContent(json_);
@@ -378,13 +378,13 @@ namespace Identity.GeneratedServices
         public virtual async System.Threading.Tasks.Task<UserResponseContractMessageContract> RegenerateTokenAsync(RegenerateTokenContract body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Identity/RegenerateToken");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Authentication/RegenerateToken");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value);
                     var content_ = new System.Net.Http.StringContent(json_);
@@ -456,13 +456,13 @@ namespace Identity.GeneratedServices
         public virtual async System.Threading.Tasks.Task<ApplicationInitializeResponseContractMessageContract> ApplicationInitializeAsync(ApplicationInitializeRequestContract body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Identity/ApplicationInitialize");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Authentication/ApplicationInitialize");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value);
                     var content_ = new System.Net.Http.StringContent(json_);
@@ -534,13 +534,13 @@ namespace Identity.GeneratedServices
         public virtual async System.Threading.Tasks.Task<UserResponseContractMessageContract> LoginByPersonalAccessTokenAsync(LoginByPersonalAccessTokenRequestContract body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Identity/LoginByPersonalAccessToken");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Authentication/LoginByPersonalAccessToken");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(body, _settings.Value);
                     var content_ = new System.Net.Http.StringContent(json_);
