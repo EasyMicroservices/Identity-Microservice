@@ -1,0 +1,24 @@
+name: Windows Client (dotnet build and test)
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+
+jobs:
+  os-tests:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version:  |
+            7.0.x
+      - name: Restore dependencies
+        run: dotnet restore ./src/CSharp/EasyMicroservices.IdentityMicroservice.Client.sln
+      - name: Build
+        run: dotnet build ./src/CSharp/EasyMicroservices.IdentityMicroservice.Client.sln --no-restore
+      - name: Test
+        run: dotnet test ./src/CSharp/EasyMicroservices.IdentityMicroservice.Client.sln --no-build --verbosity normal
