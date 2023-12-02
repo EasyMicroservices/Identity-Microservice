@@ -1,5 +1,6 @@
 ﻿
 using Authentications.GeneratedServices;
+using Contents.GeneratedServices;
 using EasyMicroservices.Cores.AspEntityFrameworkCoreApi;
 using EasyMicroservices.Cores.Clients;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
@@ -35,6 +36,16 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
             return new JWTManager(GetConfiguration());
         }
 
+        public ClaimManager GetClaimManager()
+        {
+            return _service.GetService<ClaimManager>();
+        }
+
+        string GetValue(string key)
+        {
+            return GetConfiguration().GetValue<string>(key);
+        }
+
         T SetToken<T>(HttpContext httpContext, T coreSwaggerClient)
             where T : CoreSwaggerClientBase
         {
@@ -45,19 +56,19 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
             return coreSwaggerClient;
         }
 
-        string GetRouteAddress()
+        public LanguageClient GetLanguageClient()
         {
-            return GetConfiguration().GetValue<string>("RootAddresses:Authentications");
+            return new LanguageClient(GetValue("RootAddresses:Contents"), new System.Net.Http.HttpClient());
         }
 
         public UserClient GetUserClient(HttpContext httpContext)
         {
-            return SetToken(httpContext, new UserClient(GetRouteAddress(), new System.Net.Http.HttpClient()));
+            return SetToken(httpContext, new UserClient(GetValue("RootAddresses:Authentications"), new System.Net.Http.HttpClient()));
         }
 
         public RoleClient GetRoleClient(HttpContext httpContext)
         {
-            return SetToken(httpContext, new RoleClient(GetRouteAddress(), new System.Net.Http.HttpClient()));
+            return SetToken(httpContext, new RoleClient(GetValue("RootAddresses:Authentications"), new System.Net.Http.HttpClient()));
         }
     }
 }

@@ -33,13 +33,13 @@ namespace EasyMicroservices.IdentityMicroservice.Services
         public async Task<MessageContract<UserResponseContract>> GenerateTokenWithClaims(List<ClaimContract> claims)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.UTF8.GetBytes(_config.GetValue<string>("JWT:Key"));
+            var key = Encoding.UTF8.GetBytes(_config.GetValue<string>("Authorization:JWT:Key"));
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims.Select(x => new Claim(x.Name, x.Value)).ToArray()),
-                Expires = DateTime.UtcNow.AddSeconds(_config.GetValue<int>("JWT:TokenExpireTimeInSeconds")),
-                Issuer = _config.GetValue<string>("JWT:Issuer"),
-                Audience = _config.GetValue<string>("JWT:Audience"),
+                Expires = DateTime.UtcNow.AddSeconds(_config.GetValue<int>("Authorization:JWT:TokenExpireTimeInSeconds")),
+                Issuer = _config.GetValue<string>("Authorization:JWT:Issuer"),
+                Audience = _config.GetValue<string>("Authorization:JWT:Audience"),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

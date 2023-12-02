@@ -5,6 +5,7 @@ using EasyMicroservices.IdentityMicroservice.Interfaces;
 using EasyMicroservices.ServiceContracts;
 using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
+using FailedReasonType = EasyMicroservices.ServiceContracts.FailedReasonType;
 
 namespace EasyMicroservices.IdentityMicroservice.Helpers
 {
@@ -26,13 +27,12 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
 
         public async Task<MessageContract<RegisterResponseContract>> Register(Contracts.Requests.AddUserRequestContract request)
         {
-            request.Password = await SecurityHelper.HashPassword(request.Password);
-
             var usersRecords = await _userClient.GetUserByUserNameAsync(new GetUserByUserNameRequestContract { Username = request.UserName.ToLower() });
 
             if (usersRecords.IsSuccess)
                 return (ServiceContracts.FailedReasonType.Duplicate, "User already exists!");
 
+            _userClient.SetBearerToken(_config.GetValue<string>("Authorization:FullAccessPAT"));
             var user = await _userClient.AddAsync(new AddUserRequestContract
             {
                 UserName = request.UserName,
@@ -60,6 +60,10 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
 
         public virtual async Task<MessageContract<UserResponseContract>> GenerateToken(UserClaimContract userClaim)
         {
+            var loginResponse = await Login(userClaim);
+            if (!loginResponse)
+                return (FailedReasonType.Incorrect, "Incorrect user credential provided.");
+
             var token = await _jwtManager.GenerateTokenWithClaims(userClaim.Claims);
 
             return new UserResponseContract
