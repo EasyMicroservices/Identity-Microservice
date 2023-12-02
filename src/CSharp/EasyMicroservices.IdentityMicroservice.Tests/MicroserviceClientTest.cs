@@ -7,7 +7,7 @@ namespace EasyMicroservices.IdentityMicroservice.Clients.Tests
     {
         const int Port = 1201;
         string _routeAddress = "";
-        public static HttpClient HttpClient { get; set;  } = new HttpClient();
+        public static HttpClient HttpClient { get; set; } = new HttpClient();
         public MicroserviceClientTest()
         {
             _routeAddress = $"http://localhost:{Port}";
