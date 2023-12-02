@@ -134,17 +134,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/LoginResponseContractMessageContract"
+                  "$ref": "#/components/schemas/LoginWithTokenResponseContractMessageContract"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LoginResponseContractMessageContract"
+                  "$ref": "#/components/schemas/LoginWithTokenResponseContractMessageContract"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LoginResponseContractMessageContract"
+                  "$ref": "#/components/schemas/LoginWithTokenResponseContractMessageContract"
                 }
               }
             }
@@ -249,6 +249,104 @@
           }
         }
       }
+    },
+    "/api/Identity/ApplicationInitialize": {
+      "post": {
+        "tags": [
+          "Identity"
+        ],
+        "operationId": "ApplicationInitialize",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplicationInitializeRequestContract"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplicationInitializeRequestContract"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApplicationInitializeRequestContract"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationInitializeResponseContractMessageContract"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationInitializeResponseContractMessageContract"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationInitializeResponseContractMessageContract"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Identity/LoginByPersonalAccessToken": {
+      "post": {
+        "tags": [
+          "Identity"
+        ],
+        "operationId": "LoginByPersonalAccessToken",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginByPersonalAccessTokenRequestContract"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginByPersonalAccessTokenRequestContract"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginByPersonalAccessTokenRequestContract"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseContractMessageContract"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseContractMessageContract"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseContractMessageContract"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -264,6 +362,48 @@
           "password": {
             "type": "string",
             "nullable": true
+          }
+        }
+      },
+      "ApplicationInitializeRequestContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "language": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ApplicationInitializeResponseContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "isLogin": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ApplicationInitializeResponseContractMessageContract": {
+        "title": "MessageContract<ApplicationInitializeResponseContract>",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "isSuccess": {
+            "type": "boolean"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorContract"
+          },
+          "success": {
+            "$ref": "#/components/schemas/SuccessContract"
+          },
+          "result": {
+            "$ref": "#/components/schemas/ApplicationInitializeResponseContract"
           }
         }
       },
@@ -371,18 +511,32 @@
           16
         ]
       },
-      "LoginResponseContract": {
+      "LoginByPersonalAccessTokenRequestContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "personalAccessToken": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "LoginWithTokenResponseContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "userId": {
             "type": "integer",
             "format": "int64"
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
-      "LoginResponseContractMessageContract": {
-        "title": "MessageContract<LoginResponseContract>",
+      "LoginWithTokenResponseContractMessageContract": {
+        "title": "MessageContract<LoginWithTokenResponseContract>",
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -396,7 +550,7 @@
             "$ref": "#/components/schemas/SuccessContract"
           },
           "result": {
-            "$ref": "#/components/schemas/LoginResponseContract"
+            "$ref": "#/components/schemas/LoginWithTokenResponseContract"
           }
         }
       },
@@ -419,10 +573,6 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int64"
-          },
           "claims": {
             "title": "List<ClaimContract>",
             "type": "array",
@@ -579,6 +729,22 @@
           }
         }
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter your token in the text input below.\r\n Example: \"Bearer {token}\"",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": []
+    },
+    {
+      "Bearer": []
+    }
+  ]
 }

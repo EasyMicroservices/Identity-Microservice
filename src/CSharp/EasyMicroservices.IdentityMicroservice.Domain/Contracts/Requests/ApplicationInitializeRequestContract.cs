@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace EasyMicroservices.IdentityMicroservice.Contracts.Common
 {
-    public class RegenerateTokenContract
+    public class ApplicationInitializeRequestContract
     {
-        public List<ClaimContract> Claims { get; set; }
+        public string Language { get; set;}
     }
 }
