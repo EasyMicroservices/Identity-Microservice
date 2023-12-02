@@ -10,5 +10,5 @@ namespace EasyMicroservices.IdentityMicroservice.Contracts.Responses
     public class ApplicationInitializeResponseContract : UserResponseContract
     {
         public bool IsLogin { get; set; }
-    }   
+    }
 }

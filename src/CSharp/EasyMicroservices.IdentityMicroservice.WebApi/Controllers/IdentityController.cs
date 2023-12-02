@@ -124,7 +124,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
 
             return new LoginWithTokenResponseContract
             {
-                UserId = response.Result.UserId, 
+                UserId = response.Result.UserId,
                 Token = TokenResponse.Result.Token
             };
         }
@@ -143,7 +143,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         public async Task<MessageContract<UserResponseContract>> RegenerateToken(RegenerateTokenContract request)
         {
             var _userClient = _appUnitOfWork.GetUserClient(HttpContext);
-            
+
             _userClient.SetBearerToken(_appUnitOfWork.GetConfiguration().GetValue<string>("Authorization:FullAccessPAT"));
 
             var user = await _userClient.GetByIdAsync(new Authentications.GeneratedServices.Int64GetIdRequestContract
@@ -170,7 +170,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
             {
                 Token = response.Result.Token
             };
-            
+
 
         }
 
@@ -193,7 +193,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
             if (_claimManager.HasId())
             {
                 _claimManager.SetId(_claimManager.Id, claims);
-                _claimManager.SetRole(_claimManager.Role.Select(o => new ClaimContract() { Name = ClaimTypes.Name, Value = o}).ToList(), claims);
+                _claimManager.SetRole(_claimManager.Role.Select(o => new ClaimContract() { Name = ClaimTypes.Name, Value = o }).ToList(), claims);
             }
 
             var TokenResponse = await _appUnitOfWork.GetIJWTManager().GenerateTokenWithClaims(claims);

@@ -78,7 +78,7 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
                     Name = "CurrentLanguage",
                     Value = value
                 });
-            
+
             return claims;
         }
 
@@ -91,7 +91,7 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
                     Name = "Id",
                     Value = value.Value.ToString()
                 });
-            
+
             return claims;
         }
 
@@ -101,7 +101,8 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
             if (roles.HasAny())
                 foreach (ClaimContract role in roles)
                 {
-                    claims.Add(new ClaimContract {
+                    claims.Add(new ClaimContract
+                    {
                         Name = role.Name,
                         Value = role.Value.ToString()
                     });

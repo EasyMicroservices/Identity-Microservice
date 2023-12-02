@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EasyMicroservices.IdentityMicroservice.Contracts.Requests
 {
-    public class LoginWithTokenResponseContract : LoginResponseContract 
+    public class LoginWithTokenResponseContract : LoginResponseContract
     {
         public string Token { get; set; }
     }
