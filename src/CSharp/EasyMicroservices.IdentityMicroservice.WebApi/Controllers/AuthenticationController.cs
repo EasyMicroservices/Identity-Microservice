@@ -12,7 +12,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
 
     [ApiController]
     [Route("api/[controller]/[action]")]
-    public class IdentityController : ControllerBase
+    public class AuthenticationController : ControllerBase
     {
         private readonly IConfiguration _config;
         private readonly IJWTManager _jwtManager;
@@ -20,7 +20,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         private readonly IAppUnitOfWork _appUnitOfWork;
         private readonly string _authRoot;
 
-        public IdentityController(IAppUnitOfWork appUnitOfWork)
+        public AuthenticationController(IAppUnitOfWork appUnitOfWork)
         {
             _appUnitOfWork = appUnitOfWork;
             _identityHelper = _appUnitOfWork.GetIdentityHelper();

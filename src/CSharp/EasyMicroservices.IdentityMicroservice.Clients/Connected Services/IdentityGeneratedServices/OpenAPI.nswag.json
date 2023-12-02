@@ -5,10 +5,10 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Identity/VerifyUserName": {
+    "/api/Authentication/VerifyUserName": {
       "post": {
         "tags": [
-          "Identity"
+          "Authentication"
         ],
         "operationId": "VerifyUserName",
         "requestBody": {
@@ -54,10 +54,10 @@
         }
       }
     },
-    "/api/Identity/Register": {
+    "/api/Authentication/Register": {
       "post": {
         "tags": [
-          "Identity"
+          "Authentication"
         ],
         "operationId": "Register",
         "requestBody": {
@@ -103,10 +103,10 @@
         }
       }
     },
-    "/api/Identity/Login": {
+    "/api/Authentication/Login": {
       "post": {
         "tags": [
-          "Identity"
+          "Authentication"
         ],
         "operationId": "Login",
         "requestBody": {
@@ -152,10 +152,10 @@
         }
       }
     },
-    "/api/Identity/GenerateToken": {
+    "/api/Authentication/GenerateToken": {
       "post": {
         "tags": [
-          "Identity"
+          "Authentication"
         ],
         "operationId": "GenerateToken",
         "requestBody": {
@@ -201,10 +201,10 @@
         }
       }
     },
-    "/api/Identity/RegenerateToken": {
+    "/api/Authentication/RegenerateToken": {
       "post": {
         "tags": [
-          "Identity"
+          "Authentication"
         ],
         "operationId": "RegenerateToken",
         "requestBody": {
@@ -222,6 +222,55 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/RegenerateTokenContract"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseContractMessageContract"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseContractMessageContract"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponseContractMessageContract"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Authentication/LoginByPersonalAccessToken": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "LoginByPersonalAccessToken",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginByPersonalAccessTokenRequestContract"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginByPersonalAccessTokenRequestContract"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginByPersonalAccessTokenRequestContract"
               }
             }
           }
@@ -370,6 +419,16 @@
           15,
           16
         ]
+      },
+      "LoginByPersonalAccessTokenRequestContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "personalAccessToken": {
+            "type": "string",
+            "nullable": true
+          }
+        }
       },
       "LoginResponseContract": {
         "type": "object",
