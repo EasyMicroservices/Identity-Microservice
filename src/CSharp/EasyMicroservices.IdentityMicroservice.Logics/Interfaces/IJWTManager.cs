@@ -15,7 +15,7 @@ namespace EasyMicroservices.IdentityMicroservice.Interfaces
 {
     public interface IJWTManager
     {
-        Task<ListMessageContract<ClaimContract>> GetClaimsFromToken(string token);      
+        Task<ListMessageContract<ClaimContract>> GetClaimsFromToken(string token);
         Task<MessageContract<UserResponseContract>> EditTokenClaims(EditTokenClaimRequestContract request);
         Task<MessageContract<UserResponseContract>> GenerateTokenWithClaims(List<ClaimContract> claims);
     }
