@@ -4,12 +4,13 @@ using Contents.GeneratedServices;
 using EasyMicroservices.Cores.AspEntityFrameworkCoreApi;
 using EasyMicroservices.Cores.Clients;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
-using EasyMicroservices.IdentityMicroservice.Services;
+using EasyMicroservices.Logger.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Linq;
+using System.Net.Http;
+using System.Text;
 
 namespace EasyMicroservices.IdentityMicroservice.Helpers
 {
@@ -28,12 +29,12 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
 
         public IdentityHelper GetIdentityHelper()
         {
-            return new IdentityHelper(GetConfiguration(), GetIJWTManager());
+            return _service.GetService<IdentityHelper>();
         }
 
         public IJWTManager GetIJWTManager()
         {
-            return new JWTManager(GetConfiguration());
+            return _service.GetService<IJWTManager>();
         }
 
         public ClaimManager GetClaimManager()
@@ -46,29 +47,44 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
             return GetConfiguration().GetValue<string>(key);
         }
 
-        T SetToken<T>(HttpContext httpContext, T coreSwaggerClient)
+        public IHttpContextAccessor GetHttpContextAccessor()
+        {
+            return _service.GetService<IHttpContextAccessor>();
+        }
+
+        static HttpClient CurrentHttpClient { get; set; } = new HttpClient();
+
+        public static string Token = "";
+        T InternalLogin<T>(T client)
             where T : CoreSwaggerClientBase
         {
-            if (httpContext.Request.Headers.Authorization.Count > 0)
-            {
-                coreSwaggerClient.SetBearerToken(httpContext.Request.Headers.Authorization.First());
-            }
-            return coreSwaggerClient;
+            client.SetBearerToken(Token);
+            return client;
         }
 
         public LanguageClient GetLanguageClient()
         {
-            return new LanguageClient(GetValue("RootAddresses:Contents"), new System.Net.Http.HttpClient());
+            return InternalLogin(new LanguageClient(GetValue("RootAddresses:Contents"), CurrentHttpClient));
         }
 
-        public UserClient GetUserClient(HttpContext httpContext)
+        public UserClient GetUserClient()
         {
-            return SetToken(httpContext, new UserClient(GetValue("RootAddresses:Authentications"), new System.Net.Http.HttpClient()));
+            return InternalLogin(new UserClient(GetValue("RootAddresses:Authentications"), CurrentHttpClient));
         }
 
-        public RoleClient GetRoleClient(HttpContext httpContext)
+        public RoleClient GetRoleClient()
         {
-            return SetToken(httpContext, new RoleClient(GetValue("RootAddresses:Authentications"), new System.Net.Http.HttpClient()));
+            return InternalLogin(new RoleClient(GetValue("RootAddresses:Authentications"), CurrentHttpClient));
+        }
+
+        public PersonalAccessTokenClient GetPersonalAccessTokenClientClient()
+        {
+            return InternalLogin(new PersonalAccessTokenClient(GetValue("RootAddresses:Authentications"), CurrentHttpClient));
+        }
+
+        public ILoggerProvider GetLogger()
+        {
+            return ServiceProvider.GetService<ILoggerProvider>();
         }
     }
 }

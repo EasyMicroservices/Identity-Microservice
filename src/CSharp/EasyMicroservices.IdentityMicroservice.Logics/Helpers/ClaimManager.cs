@@ -19,7 +19,7 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
             _httpContext = httpContext;
 
 
-            var token = _httpContext.HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+            var token = _httpContext.HttpContext?.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
             if (token != null)
             {

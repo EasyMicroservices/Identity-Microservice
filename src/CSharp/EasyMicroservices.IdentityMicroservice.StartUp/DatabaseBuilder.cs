@@ -1,12 +1,6 @@
-﻿using EasyMicroservices.IdentityMicroservice.Database;
-using EasyMicroservices.Cores.Relational.EntityFrameworkCore.Intrerfaces;
+﻿using EasyMicroservices.Cores.Relational.EntityFrameworkCore.Intrerfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EasyMicroservices.IdentityMicroservice
 {
@@ -20,8 +14,8 @@ namespace EasyMicroservices.IdentityMicroservice
 
         public void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseInMemoryDatabase("IdentityDatabase");
-            //optionsBuilder.UseSqlServer(_configuration.GetConnectionString("local"));
+            //optionsBuilder.UseInMemoryDatabase("IdentityDatabase");
+            optionsBuilder.UseSqlServer(_configuration.GetConnectionString("local"));
         }
     }
 }
