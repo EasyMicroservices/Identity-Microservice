@@ -41,11 +41,11 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
             app.Services.AddTransient((serviceProvider) => new ClaimManager(serviceProvider.GetService<IHttpContextAccessor>()));
             app.Services.AddTransient<IJWTManager, JWTManager>();
             app.Services.AddTransient<IdentityHelper>();
-            app.Services.AddHostedService<InternalTokenGeneratorBackgroundService>(); 
+            app.Services.AddHostedService<InternalTokenGeneratorBackgroundService>();
             StartUpExtensions.AddWhiteLabel("Identity", "RootAddresses:WhiteLabel");
             return app;
         }
-        
+
 
         public static async Task Run(string[] args, Action<IServiceCollection> use)
         {
