@@ -10,17 +10,21 @@ using System.Threading.Tasks;
 using EasyMicroservices.IdentityMicroservice.Helpers;
 using Authentications.GeneratedServices;
 using Contents.GeneratedServices;
+using EasyMicroservices.Logger.Interfaces;
 
 namespace EasyMicroservices.IdentityMicroservice.Interfaces
 {
     public interface IAppUnitOfWork : IUnitOfWork
     {
+        public IHttpContextAccessor GetHttpContextAccessor();
         public IJWTManager GetIJWTManager();
         public IConfiguration GetConfiguration();
+        public ILoggerProvider GetLogger();
         public IdentityHelper GetIdentityHelper();
-        public LanguageClient GetLanguageClient();
         public ClaimManager GetClaimManager();
-        public UserClient GetUserClient(HttpContext httpContext);
-        public RoleClient GetRoleClient(HttpContext httpContext);
+        public LanguageClient GetLanguageClient();
+        public UserClient GetUserClient();
+        public RoleClient GetRoleClient();
+        public PersonalAccessTokenClient GetPersonalAccessTokenClientClient();
     }
 }

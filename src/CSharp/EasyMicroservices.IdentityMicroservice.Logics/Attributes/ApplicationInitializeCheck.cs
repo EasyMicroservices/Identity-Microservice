@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using EasyMicroservices.ServiceContracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace EasyMicroservices.IdentityMicroservice.Attributes
 {
@@ -24,16 +22,26 @@ namespace EasyMicroservices.IdentityMicroservice.Attributes
 
             if (!user.Identity.IsAuthenticated)
             {
-                context.Result = new UnauthorizedResult();
+                context.Result = GetErrorContent();
                 return;
             }
 
             var hasClaims = ClaimTypes.All(o => user.Claims.Any(x => x.Type == o));
 
             if (!hasClaims)
-                context.Result = new UnauthorizedResult();
+                context.Result = GetErrorContent();
 
             return;
+        }
+
+        ContentResult GetErrorContent()
+        {
+            var msg = (MessageContract)(FailedReasonType.SessionAccessDenied, "Please call appinit!");
+            return new ContentResult()
+            {
+                Content = JsonSerializer.Serialize(msg),
+                ContentType = "application/json"
+            };
         }
     }
 }
