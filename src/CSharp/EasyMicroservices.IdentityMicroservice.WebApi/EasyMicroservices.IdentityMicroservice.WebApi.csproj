@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyMicroservices.Logger.DependencyInjection" Version="0.0.0.4" />
-    <PackageReference Include="EasyMicroservices.Logger.Serilog" Version="0.0.0.4" />
+    <PackageReference Include="EasyMicroservices.Logger.DependencyInjection" Version="0.0.0.5" />
+    <PackageReference Include="EasyMicroservices.Logger.Serilog" Version="0.0.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.14">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

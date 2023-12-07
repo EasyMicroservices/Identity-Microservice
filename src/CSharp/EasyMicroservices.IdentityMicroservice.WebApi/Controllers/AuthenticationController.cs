@@ -82,14 +82,16 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         {
             var _identityHelper = _appUnitOfWork.GetIdentityHelper();
             var response = await _identityHelper.Login(request);
-            if (!response.IsSuccess)
-                return response.ToContract<LoginWithTokenResponseContract>();
 
-            var user = await _appUnitOfWork.GetUserClient().GetByIdAsync(new Authentications.GeneratedServices.Int64GetIdRequestContract { Id = response.Result.UserId }).AsCheckedResult(x => x.Result);
-            var roles = await _appUnitOfWork.GetRoleClient().GetRolesByUserIdAsync(new Authentications.GeneratedServices.Int64GetIdRequestContract
-            {
-                Id = response.Result.UserId
-            }).AsCheckedResult(x => x.Result);
+            var user = await _appUnitOfWork.GetUserClient()
+                .GetByIdAsync(new Authentications.GeneratedServices.Int64GetIdRequestContract { Id = response.UserId })
+                .AsCheckedResult(x => x.Result);
+
+            var roles = await _appUnitOfWork.GetRoleClient()
+                .GetRolesByUserIdAsync(new Authentications.GeneratedServices.Int64GetIdRequestContract
+                {
+                    Id = response.UserId
+                }).AsCheckedResult(x => x.Result);
 
             List<ClaimContract> claims = new();
 
@@ -112,7 +114,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
 
             return new LoginWithTokenResponseContract
             {
-                UserId = response.Result.UserId,
+                UserId = response.UserId,
                 Token = TokenResponse.Result.Token
             };
         }
@@ -121,6 +123,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         [ApplicationInitializeCheck]
         public async Task<MessageContract<UserResponseContract>> GenerateToken(UserClaimContract request)
         {
+            request.Claims = request.Claims.Where(x => !x.Name.Contains("Role", StringComparison.OrdinalIgnoreCase)).ToList();
             var _identityHelper = _appUnitOfWork.GetIdentityHelper();
             var response = await _identityHelper.GenerateToken(request);
 
@@ -131,6 +134,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         [CustomAuthorizeCheck]
         public async Task<MessageContract<UserResponseContract>> RegenerateToken(RegenerateTokenContract request)
         {
+            request.Claims = request.Claims.Where(x => !x.Name.Contains("Role", StringComparison.OrdinalIgnoreCase)).ToList();
             var _userClient = _appUnitOfWork.GetUserClient();
 
             _userClient.SetBearerToken(_appUnitOfWork.GetConfiguration().GetValue<string>("Authorization:FullAccessPAT"));

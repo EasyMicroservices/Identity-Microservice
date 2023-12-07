@@ -42,7 +42,7 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
             };
         }
 
-        public virtual async Task<MessageContract<LoginResponseContract>> Login(Contracts.Common.UserSummaryContract cred)
+        public virtual async Task<LoginResponseContract> Login(Contracts.Common.UserSummaryContract cred)
         {
             var client = _appUnitOfWork.GetUserClient();
             var user = await client.VerifyUserIdentityAsync(new Authentications.GeneratedServices.UserSummaryContract
@@ -98,9 +98,7 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
 
         public virtual async Task<MessageContract<UserResponseContract>> GenerateToken(UserClaimContract userClaim)
         {
-            var loginResponse = await Login(userClaim);
-            if (!loginResponse)
-                return (FailedReasonType.Incorrect, "Incorrect user credential provided.");
+            await Login(userClaim);
 
             var token = await _appUnitOfWork.GetIJWTManager().GenerateTokenWithClaims(userClaim.Claims);
 
