@@ -1,6 +1,5 @@
 ﻿using EasyMicroservices.IdentityMicroservice.Helpers;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
-using EasyMicroservices.Logger.Interfaces;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading;
@@ -26,20 +25,22 @@ public class InternalTokenGeneratorBackgroundService : IHostedService, IDisposab
 
     private void DoWork(object state)
     {
-        _ = Task.Run(async () =>
+        _ = Task.Run(() => GetToken(_unitOfWork));
+    }
+
+    public static async Task GetToken(IAppUnitOfWork appUnitOfWork)
+    {
+        var logger = appUnitOfWork.GetLogger();
+        try
         {
-            var logger = _unitOfWork.GetLogger();
-            try
-            {
-                logger.Debug("Try login...");
-                AppUnitOfWork.Token = await _unitOfWork.GetIdentityHelper().GetFullAccessPersonalAccessToken();
-                logger.Debug($"Login success {AppUnitOfWork.Token}");
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex);
-            }
-        });
+            logger.Debug("Try login...");
+            AppUnitOfWork.Token = await appUnitOfWork.GetIdentityHelper().GetFullAccessPersonalAccessToken();
+            logger.Debug($"Login success {AppUnitOfWork.Token}");
+        }
+        catch (Exception ex)
+        {
+            logger.Error(ex);
+        }
     }
 
     public Task StopAsync(CancellationToken stoppingToken)

@@ -5,10 +5,6 @@ using EasyMicroservices.IdentityMicroservice.Database.Contexts;
 using EasyMicroservices.IdentityMicroservice.Helpers;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
 using EasyMicroservices.IdentityMicroservice.Services;
-using EasyMicroservices.Logger.Interfaces;
-using EasyMicroservices.Logger.Options;
-using EasyMicroservices.Logger.Serilog.Providers;
-using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 
 namespace EasyMicroservices.IdentityMicroservice.WebApi
@@ -18,9 +14,13 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
         public static async Task Main(string[] args)
         {
             var app = CreateBuilder(args);
-            var build = await app.Build<IdentityContext>(true);
+            var build = await app.BuildWithUseCors<IdentityContext>(default, true);
             build.MapControllers();
-            var scope = build.Services.CreateScope();
+            //host server need to get token from start
+            using var scope = build.Services.CreateScope();
+            var unitOfWork = scope.ServiceProvider.GetService<IAppUnitOfWork>();
+            await InternalTokenGeneratorBackgroundService.GetToken(unitOfWork);
+
             await build.RunAsync();
         }
 
@@ -33,6 +33,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
                     .WriteTo.File("serilog.txt")
                     .MinimumLevel.Is(Serilog.Events.LogEventLevel.Verbose));
             });
+
             app.Services.Builder<IdentityContext>().UseDefaultSwaggerOptions();
             app.Services.AddTransient((serviceProvider) => new UnitOfWork(serviceProvider));
             app.Services.AddTransient(serviceProvider => new IdentityContext(serviceProvider.GetService<IEntityFrameworkCoreDatabaseBuilder>()));
@@ -41,11 +42,12 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
             app.Services.AddTransient((serviceProvider) => new ClaimManager(serviceProvider.GetService<IHttpContextAccessor>()));
             app.Services.AddTransient<IJWTManager, JWTManager>();
             app.Services.AddTransient<IdentityHelper>();
-            app.Services.AddHostedService<InternalTokenGeneratorBackgroundService>(); 
+            app.Services.AddHostedService<InternalTokenGeneratorBackgroundService>();
+
             StartUpExtensions.AddWhiteLabel("Identity", "RootAddresses:WhiteLabel");
             return app;
         }
-        
+
 
         public static async Task Run(string[] args, Action<IServiceCollection> use)
         {
