@@ -86,7 +86,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
             var user = await _appUnitOfWork.GetUserClient()
                 .GetByIdAsync(new Authentications.GeneratedServices.Int64GetIdRequestContract { Id = response.UserId })
                 .AsCheckedResult(x => x.Result);
-           
+
             var roles = await _appUnitOfWork.GetRoleClient()
                 .GetRolesByUserIdAsync(new Authentications.GeneratedServices.Int64GetIdRequestContract
                 {
