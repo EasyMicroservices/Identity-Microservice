@@ -362,6 +362,10 @@
           "password": {
             "type": "string",
             "nullable": true
+          },
+          "whiteLabelKey": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -369,6 +373,10 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
+          "whiteLabelKey": {
+            "type": "string",
+            "nullable": true
+          },
           "language": {
             "type": "string",
             "nullable": true
@@ -648,6 +656,10 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
+          "whiteLabelKey": {
+            "type": "string",
+            "nullable": true
+          },
           "userName": {
             "type": "string",
             "nullable": true
@@ -699,6 +711,10 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
+          "whiteLabelKey": {
+            "type": "string",
+            "nullable": true
+          },
           "userName": {
             "type": "string",
             "nullable": true
@@ -740,9 +756,6 @@
     }
   },
   "security": [
-    {
-      "Bearer": []
-    },
     {
       "Bearer": []
     }
