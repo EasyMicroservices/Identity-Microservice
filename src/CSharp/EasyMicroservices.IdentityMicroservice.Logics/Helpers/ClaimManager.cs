@@ -1,4 +1,5 @@
 ﻿using Authentications.GeneratedServices;
+using EasyMicroservices.Cores.Interfaces;
 using EasyMicroservices.IdentityMicroservice.Contracts.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
@@ -116,7 +117,7 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
             if (value != null)
                 claims.Add(new ClaimContract
                 {
-                    Name = "UniqueIdentity",
+                    Name = nameof(IUniqueIdentitySchema.UniqueIdentity),
                     Value = value
                 });
             return claims;

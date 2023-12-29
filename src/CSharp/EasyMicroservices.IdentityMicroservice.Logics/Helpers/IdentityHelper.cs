@@ -1,14 +1,13 @@
-﻿using Authentications.GeneratedServices;
-using EasyMicroservices.IdentityMicroservice.Contracts.Common;
+﻿using EasyMicroservices.IdentityMicroservice.Contracts.Common;
 using EasyMicroservices.IdentityMicroservice.Contracts.Responses;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
 using EasyMicroservices.ServiceContracts;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using FailedReasonType = EasyMicroservices.ServiceContracts.FailedReasonType;
 
 namespace EasyMicroservices.IdentityMicroservice.Helpers
 {
@@ -24,31 +23,46 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
 
         public async Task<MessageContract<RegisterResponseContract>> Register(Contracts.Requests.AddUserRequestContract request)
         {
-            var client = _appUnitOfWork.GetUserClient();
-            var usersRecords = await client.GetUserByUserNameAsync(new GetUserByUserNameRequestContract
+            var whiteLabelClient = _appUnitOfWork.GetWhiteLabelClient();
+            var uniqueIdentityOfBusiness = await whiteLabelClient.GetUniqueIdentityByKeyAsync(new WhiteLables.GeneratedServices.GuidGetByIdRequestContract()
             {
-                Username = request.UserName.ToLower()
+                Id = System.Guid.Parse(request.WhiteLabelKey)
             }).AsCheckedResult(x => x.Result);
 
-            var user = await client.AddAsync(new AddUserRequestContract
+            var client = _appUnitOfWork.GetUserClient();
+            var user = await client.GetUserByUserNameAsync(new Authentications.GeneratedServices.GetUserByUserNameRequestContract
+            {
+                UserName = request.UserName.ToLower(),
+                UniqueIdentity = uniqueIdentityOfBusiness
+            });
+            if (user.IsSuccess)
+                return (FailedReasonType.Duplicate, $"User with UserName: {request.UserName} already exists!");
+            var addedUserId = await client.AddAsync(new Authentications.GeneratedServices.AddUserRequestContract
             {
                 UserName = request.UserName,
-                Password = request.Password
-            });
+                Password = request.Password,
+                UniqueIdentity = uniqueIdentityOfBusiness
+            }).AsCheckedResult(x => x.Result);
 
             return new RegisterResponseContract
             {
-                UserId = user.Result,
+                UserId = addedUserId,
             };
         }
 
-        public virtual async Task<LoginResponseContract> Login(Contracts.Common.UserSummaryContract cred)
+        public virtual async Task<LoginResponseContract> Login(Contracts.Common.UserSummaryContract request)
         {
+            var _whiteLabelClient = _appUnitOfWork.GetWhiteLabelClient();
+            var uniqueIdentity = await _whiteLabelClient.GetUniqueIdentityByKeyAsync(new WhiteLables.GeneratedServices.GuidGetByIdRequestContract
+            {
+                Id = Guid.Parse(request.WhiteLabelKey)
+            }).AsCheckedResult(x => x.Result);
             var client = _appUnitOfWork.GetUserClient();
             var user = await client.VerifyUserIdentityAsync(new Authentications.GeneratedServices.UserSummaryContract
             {
-                UserName = cred.UserName,
-                Password = cred.Password
+                UserName = request.UserName,
+                Password = request.Password,
+                UniqueIdentity = uniqueIdentity
             }).AsCheckedResult(x => x.Result);
 
 
@@ -71,9 +85,10 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
                 Value = personalAccessToken
             }).AsCheckedResult(x => x.Result);
 
-            var roles = await _appUnitOfWork.GetRoleClient().GetRolesByUserIdAsync(new Authentications.GeneratedServices.Int64GetIdRequestContract
+            var roles = await _appUnitOfWork.GetRoleClient().GetRolesByUserIdAsync(new Authentications.GeneratedServices.GetByIdAndUniqueIdentityRequestContract
             {
-                Id = user.Id
+                Id = user.Id,
+                //UniqueIdentity = user.UniqueIdentity
             }).AsCheckedResult(x => x.Result);
 
             List<ClaimContract> claims = new();

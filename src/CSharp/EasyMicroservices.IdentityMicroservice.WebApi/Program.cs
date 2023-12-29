@@ -34,7 +34,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
                     .MinimumLevel.Is(Serilog.Events.LogEventLevel.Verbose));
             });
 
-            app.Services.Builder<IdentityContext>().UseDefaultSwaggerOptions();
+            app.Services.Builder<IdentityContext>("Identity").UseDefaultSwaggerOptions();
             app.Services.AddTransient((serviceProvider) => new UnitOfWork(serviceProvider));
             app.Services.AddTransient(serviceProvider => new IdentityContext(serviceProvider.GetService<IEntityFrameworkCoreDatabaseBuilder>()));
             app.Services.AddTransient<IEntityFrameworkCoreDatabaseBuilder, DatabaseBuilder>();
@@ -43,8 +43,6 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
             app.Services.AddTransient<IJWTManager, JWTManager>();
             app.Services.AddTransient<IdentityHelper>();
             app.Services.AddHostedService<InternalTokenGeneratorBackgroundService>();
-
-            StartUpExtensions.AddWhiteLabel("Identity", "RootAddresses:WhiteLabel");
             return app;
         }
 

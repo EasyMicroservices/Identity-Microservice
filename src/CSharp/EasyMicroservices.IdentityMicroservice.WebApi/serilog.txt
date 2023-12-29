@@ -1,0 +1,123 @@
+2023-12-24 23:25:35.512 +03:30 [DBG] Try login...
+2023-12-24 23:25:37.460 +03:30 [ERR] Empty
+EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
+   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-24 23:29:47.211 +03:30 [DBG] Try login...
+2023-12-24 23:29:47.831 +03:30 [ERR] Empty
+EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
+   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-24 23:30:00.288 +03:30 [DBG] Try login...
+2023-12-24 23:30:00.740 +03:30 [ERR] Empty
+EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
+   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-25 09:23:33.812 +03:30 [DBG] Try login...
+2023-12-25 09:23:34.496 +03:30 [ERR] Empty
+EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
+   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-26 19:23:34.795 +03:30 [DBG] Try login...
+2023-12-26 19:23:52.372 +03:30 [DBG] Try login...
+2023-12-26 19:24:33.990 +03:30 [DBG] Try login...
+2023-12-26 19:25:06.481 +03:30 [DBG] Try login...
+2023-12-26 19:25:07.965 +03:30 [ERR] Empty
+EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
+   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-26 19:38:34.986 +03:30 [DBG] Try login...
+2023-12-26 19:38:35.399 +03:30 [ERR] Empty
+EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
+   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-26 19:42:07.241 +03:30 [DBG] Try login...
+2023-12-26 19:42:07.634 +03:30 [ERR] Empty
+EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
+   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-26 19:47:14.974 +03:30 [DBG] Try login...
+2023-12-26 19:47:15.900 +03:30 [ERR] Empty
+EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
+   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-26 21:07:52.200 +03:30 [DBG] Try login...
+2023-12-26 21:07:56.740 +03:30 [ERR] Empty
+System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:1044)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|281_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.HttpConnectionWaiter`1.WaitForConnectionAsync(Boolean async, CancellationToken requestCancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Authentications.GeneratedServices.UserClient.GetUserByPersonalAccessTokenAsync(PersonalAccessTokenRequestContract body, CancellationToken cancellationToken)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 76
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-27 12:46:02.258 +03:30 [DBG] Try login...
+2023-12-27 12:46:03.405 +03:30 [ERR] Empty
+EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
+   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 76
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-27 12:50:03.975 +03:30 [DBG] Try login...
+2023-12-27 12:50:18.983 +03:30 [ERR] Empty
+EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
+   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 76
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-27 12:50:35.795 +03:30 [DBG] Try login...
+2023-12-27 12:51:13.304 +03:30 [DBG] Try login...
+2023-12-27 12:51:20.998 +03:30 [ERR] Empty
+EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
+   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 76
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-27 12:51:23.766 +03:30 [DBG] Try login...
+2023-12-27 12:51:59.481 +03:30 [DBG] Try login...
+2023-12-27 12:55:19.792 +03:30 [DBG] Try login...
+2023-12-27 12:55:24.221 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMiIsInJvbGUiOiJPd25lciIsIm5iZiI6MTcwMzY2OTEyMCwiZXhwIjoxNzAzNzU1NTIwLCJpYXQiOjE3MDM2NjkxMjAsImlzcyI6Imh0dHBzOi8vZ2l0aHViLmNvbS9lYXN5bWljcm9zZXJ2aWNlcyIsImF1ZCI6ImVhc3ltaWNyb3NlcnZpY2VzIn0.dGmzIFraAlcYSEXY6zc14lY3Ivk1yX6siAObnV2EAr8
+2023-12-27 12:58:51.087 +03:30 [DBG] Try login...
+2023-12-27 12:58:51.577 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMiIsInJvbGUiOiJPd25lciIsIm5iZiI6MTcwMzY2OTMzMSwiZXhwIjoxNzAzNzU1NzMxLCJpYXQiOjE3MDM2NjkzMzEsImlzcyI6Imh0dHBzOi8vZ2l0aHViLmNvbS9lYXN5bWljcm9zZXJ2aWNlcyIsImF1ZCI6ImVhc3ltaWNyb3NlcnZpY2VzIn0.CpgUWOam3lLfK37JMs_mFxecdKioivXA4L19Pf9PCik
+2023-12-29 12:52:17.107 +03:30 [DBG] Try login...
+2023-12-29 12:52:18.377 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMiIsInJvbGUiOiJPd25lciIsIm5iZiI6MTcwMzg0MTczOCwiZXhwIjoxNzAzOTI4MTM4LCJpYXQiOjE3MDM4NDE3MzgsImlzcyI6Imh0dHBzOi8vZ2l0aHViLmNvbS9lYXN5bWljcm9zZXJ2aWNlcyIsImF1ZCI6ImVhc3ltaWNyb3NlcnZpY2VzIn0.wNe0EYwpxeXn1iLyWISLa6B8o_FD-rYjR-DBF4glQqw
