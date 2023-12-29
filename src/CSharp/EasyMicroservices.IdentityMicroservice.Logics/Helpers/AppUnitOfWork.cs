@@ -9,8 +9,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
-using System.Text;
+using WhiteLables.GeneratedServices;
 
 namespace EasyMicroservices.IdentityMicroservice.Helpers
 {
@@ -41,10 +43,12 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
         {
             return _service.GetService<ClaimManager>();
         }
-
+        static List<ServiceAddressInfo> ServiceAddresses;
         string GetValue(string key)
         {
-            return GetConfiguration().GetValue<string>(key);
+            if (ServiceAddresses == null)
+                ServiceAddresses = GetConfiguration().GetSection("ServiceAddresses").Get<List<ServiceAddressInfo>>();
+            return ServiceAddresses.FirstOrDefault(x => x.Name.Equals(key, StringComparison.OrdinalIgnoreCase)).Address;
         }
 
         public IHttpContextAccessor GetHttpContextAccessor()
@@ -64,27 +68,32 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
 
         public LanguageClient GetLanguageClient()
         {
-            return InternalLogin(new LanguageClient(GetValue("RootAddresses:Contents"), CurrentHttpClient));
+            return InternalLogin(new LanguageClient(GetValue("Content"), CurrentHttpClient));
         }
 
         public UserClient GetUserClient()
         {
-            return InternalLogin(new UserClient(GetValue("RootAddresses:Authentications"), CurrentHttpClient));
+            return InternalLogin(new UserClient(GetValue("Authentication"), CurrentHttpClient));
         }
 
         public RoleClient GetRoleClient()
         {
-            return InternalLogin(new RoleClient(GetValue("RootAddresses:Authentications"), CurrentHttpClient));
+            return InternalLogin(new RoleClient(GetValue("Authentication"), CurrentHttpClient));
         }
 
         public PersonalAccessTokenClient GetPersonalAccessTokenClientClient()
         {
-            return InternalLogin(new PersonalAccessTokenClient(GetValue("RootAddresses:Authentications"), CurrentHttpClient));
+            return InternalLogin(new PersonalAccessTokenClient(GetValue("Authentication"), CurrentHttpClient));
         }
 
         public ILoggerProvider GetLogger()
         {
             return ServiceProvider.GetService<ILoggerProvider>();
+        }
+
+        public WhiteLabelClient GetWhiteLabelClient()
+        {
+            return InternalLogin(new WhiteLabelClient(GetValue("WhiteLabel"), CurrentHttpClient));
         }
     }
 }

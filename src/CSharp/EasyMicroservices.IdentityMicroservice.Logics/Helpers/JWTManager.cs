@@ -26,7 +26,7 @@ namespace EasyMicroservices.IdentityMicroservice.Services
         public JWTManager(IConfiguration config)
         {
             _config = config;
-            _authRoot = _config.GetValue<string>("RootAddresses:Authentications");
+            _authRoot = _config.GetValue<string>("RootAddresses:Authentication");
             _userClient = new(_authRoot, new System.Net.Http.HttpClient());
         }
 

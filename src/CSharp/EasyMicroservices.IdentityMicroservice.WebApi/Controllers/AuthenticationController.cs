@@ -1,5 +1,4 @@
-﻿using Authentications.GeneratedServices;
-using Contents.GeneratedServices;
+﻿using Contents.GeneratedServices;
 using EasyMicroservices.IdentityMicroservice.Attributes;
 using EasyMicroservices.IdentityMicroservice.Contracts.Common;
 using EasyMicroservices.IdentityMicroservice.Contracts.Requests;
@@ -9,13 +8,13 @@ using EasyMicroservices.ServiceContracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using System.Text;
 
 namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
 {
 
     [ApiController]
     [Route("api/[controller]/[action]")]
-    [AllowAnonymous]
     public class AuthenticationController : ControllerBase
     {
         private readonly IAppUnitOfWork _appUnitOfWork;
@@ -46,7 +45,10 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         public async Task<ServiceContracts.MessageContract> VerifyUserName(VerifyUserRequestContract request)
         {
             var _userClient = _appUnitOfWork.GetUserClient();
-            var user = await _userClient.GetByIdAsync(new Authentications.GeneratedServices.Int64GetIdRequestContract { Id = request.UserId });
+            var user = await _userClient.GetByIdAsync(new Authentications.GeneratedServices.Int64GetByIdRequestContract
+            {
+                Id = request.UserId
+            });
 
             if (!user.IsSuccess)
                 return (ServiceContracts.FailedReasonType.NotFound, "User not found");
@@ -71,6 +73,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<MessageContract<RegisterResponseContract>> Register(Contracts.Requests.AddUserRequestContract request)
         {
             var _identityHelper = _appUnitOfWork.GetIdentityHelper();
@@ -78,19 +81,24 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<MessageContract<LoginWithTokenResponseContract>> Login(Contracts.Common.UserSummaryContract request)
         {
             var _identityHelper = _appUnitOfWork.GetIdentityHelper();
             var response = await _identityHelper.Login(request);
 
             var user = await _appUnitOfWork.GetUserClient()
-                .GetByIdAsync(new Authentications.GeneratedServices.Int64GetIdRequestContract { Id = response.UserId })
+                .GetByIdAsync(new Authentications.GeneratedServices.Int64GetByIdRequestContract
+                {
+                    Id = response.UserId
+                })
                 .AsCheckedResult(x => x.Result);
 
             var roles = await _appUnitOfWork.GetRoleClient()
-                .GetRolesByUserIdAsync(new Authentications.GeneratedServices.Int64GetIdRequestContract
+                .GetRolesByUserIdAsync(new Authentications.GeneratedServices.GetByIdAndUniqueIdentityRequestContract
                 {
-                    Id = response.UserId
+                    Id = response.UserId,
+                    //UniqueIdentity = uniqueIdentity
                 }).AsCheckedResult(x => x.Result);
 
             List<ClaimContract> claims = new();
@@ -107,20 +115,20 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
                     Value = x.Name
                 }).ToList(), claims);
             }
+            var tokenResponse = await _appUnitOfWork.GetIJWTManager().GenerateTokenWithClaims(claims);
 
-            var TokenResponse = await _appUnitOfWork.GetIJWTManager().GenerateTokenWithClaims(claims);
-
-            SetCookie("token", TokenResponse.Result.Token);
+            SetCookie("token", tokenResponse.Result.Token);
 
             return new LoginWithTokenResponseContract
             {
                 UserId = response.UserId,
-                Token = TokenResponse.Result.Token
+                Token = tokenResponse.Result.Token
             };
         }
 
         [HttpPost]
         [ApplicationInitializeCheck]
+        [AllowAnonymous]
         public async Task<MessageContract<UserResponseContract>> GenerateToken(UserClaimContract request)
         {
             request.Claims = request.Claims.Where(x => !x.Name.Contains("Role", StringComparison.OrdinalIgnoreCase)).ToList();
@@ -132,6 +140,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
 
         [HttpPost]
         [CustomAuthorizeCheck]
+        [AllowAnonymous]
         public async Task<MessageContract<UserResponseContract>> RegenerateToken(RegenerateTokenContract request)
         {
             request.Claims = request.Claims.Where(x => !x.Name.Contains("Role", StringComparison.OrdinalIgnoreCase)).ToList();
@@ -140,7 +149,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
             _userClient.SetBearerToken(_appUnitOfWork.GetConfiguration().GetValue<string>("Authorization:FullAccessPAT"));
 
             var _claimManager = _appUnitOfWork.GetClaimManager();
-            var user = await _userClient.GetByIdAsync(new Authentications.GeneratedServices.Int64GetIdRequestContract
+            var user = await _userClient.GetByIdAsync(new Authentications.GeneratedServices.Int64GetByIdRequestContract
             {
                 Id = _claimManager.Id
             });
@@ -170,17 +179,15 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<MessageContract<ApplicationInitializeResponseContract>> ApplicationInitialize(ApplicationInitializeRequestContract request)
         {
             LanguageClient _languageClient = _appUnitOfWork.GetLanguageClient();
 
-            var language = await _languageClient.HasLanguageAsync(new HasLanguageRequestContract
+            await _languageClient.HasLanguageAsync(new HasLanguageRequestContract
             {
                 Language = request.Language
-            });
-
-            if (!language.IsSuccess)
-                return (ServiceContracts.FailedReasonType.NotFound, "Language not found.");
+            }).AsCheckedResult();
 
             List<ClaimContract> claims = new();
             var _claimManager = _appUnitOfWork.GetClaimManager();
@@ -188,17 +195,30 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
             if (_claimManager.HasId())
             {
                 _claimManager.SetId(_claimManager.Id, claims);
-                _claimManager.SetRole(_claimManager.Role.Select(o => new ClaimContract() { Name = ClaimTypes.Name, Value = o }).ToList(), claims);
+                _claimManager.SetRole(_claimManager.Role.Select(o => new ClaimContract()
+                {
+                    Name = ClaimTypes.Name,
+                    Value = o
+                }).ToList(), claims);
             }
+            if (request.WhiteLabelKey.HasValue())
+            {
+                var _whiteLabelClient = _appUnitOfWork.GetWhiteLabelClient();
+                var uniqueIdentity = await _whiteLabelClient.GetUniqueIdentityByKeyAsync(new WhiteLables.GeneratedServices.GuidGetByIdRequestContract
+                {
+                    Id = Guid.Parse(request.WhiteLabelKey)
+                }).AsCheckedResult(x => x.Result);
+                _claimManager.SetUniqueIdentity(uniqueIdentity, claims);
+            }
+            var tokenResponse = await _appUnitOfWork.GetIJWTManager().GenerateTokenWithClaims(claims);
 
-            var TokenResponse = await _appUnitOfWork.GetIJWTManager().GenerateTokenWithClaims(claims);
+            SetCookie("token", tokenResponse.Result.Token);
 
-            SetCookie("token", TokenResponse.Result.Token);
-
-            return new ApplicationInitializeResponseContract() { IsLogin = _claimManager.HasId(), Token = TokenResponse.Result.Token };
+            return new ApplicationInitializeResponseContract() { IsLogin = _claimManager.HasId(), Token = tokenResponse.Result.Token };
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<MessageContract<UserResponseContract>> LoginByPersonalAccessToken(LoginByPersonalAccessTokenRequestContract request)
         {
             var token = await _appUnitOfWork.GetIdentityHelper().GetFullAccessPersonalAccessToken(request.PersonalAccessToken);

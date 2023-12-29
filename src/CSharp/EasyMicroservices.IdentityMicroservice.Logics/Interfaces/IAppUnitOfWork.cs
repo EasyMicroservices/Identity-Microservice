@@ -11,6 +11,7 @@ using EasyMicroservices.IdentityMicroservice.Helpers;
 using Authentications.GeneratedServices;
 using Contents.GeneratedServices;
 using EasyMicroservices.Logger.Interfaces;
+using WhiteLables.GeneratedServices;
 
 namespace EasyMicroservices.IdentityMicroservice.Interfaces
 {
@@ -26,5 +27,6 @@ namespace EasyMicroservices.IdentityMicroservice.Interfaces
         public UserClient GetUserClient();
         public RoleClient GetRoleClient();
         public PersonalAccessTokenClient GetPersonalAccessTokenClientClient();
+        public WhiteLabelClient GetWhiteLabelClient();
     }
 }

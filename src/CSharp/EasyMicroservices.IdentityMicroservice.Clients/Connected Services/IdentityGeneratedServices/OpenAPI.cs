@@ -707,6 +707,7 @@ namespace Identity.GeneratedServices
     {
         private string _userName;
         private string _password;
+        private string _whiteLabelKey;
 
         [Newtonsoft.Json.JsonProperty("userName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserName
@@ -738,6 +739,21 @@ namespace Identity.GeneratedServices
             }
         }
 
+        [Newtonsoft.Json.JsonProperty("whiteLabelKey", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string WhiteLabelKey
+        {
+            get { return _whiteLabelKey; }
+
+            set
+            {
+                if (_whiteLabelKey != value)
+                {
+                    _whiteLabelKey = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void RaisePropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
@@ -751,7 +767,23 @@ namespace Identity.GeneratedServices
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.3.0))")]
     public partial class ApplicationInitializeRequestContract : System.ComponentModel.INotifyPropertyChanged
     {
+        private string _whiteLabelKey;
         private string _language;
+
+        [Newtonsoft.Json.JsonProperty("whiteLabelKey", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string WhiteLabelKey
+        {
+            get { return _whiteLabelKey; }
+
+            set
+            {
+                if (_whiteLabelKey != value)
+                {
+                    _whiteLabelKey = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
 
         [Newtonsoft.Json.JsonProperty("language", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Language
@@ -1595,9 +1627,25 @@ namespace Identity.GeneratedServices
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.3.0))")]
     public partial class UserClaimContract : System.ComponentModel.INotifyPropertyChanged
     {
+        private string _whiteLabelKey;
         private string _userName;
         private string _password;
         private System.Collections.Generic.ICollection<ClaimContract> _claims;
+
+        [Newtonsoft.Json.JsonProperty("whiteLabelKey", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string WhiteLabelKey
+        {
+            get { return _whiteLabelKey; }
+
+            set
+            {
+                if (_whiteLabelKey != value)
+                {
+                    _whiteLabelKey = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
 
         [Newtonsoft.Json.JsonProperty("userName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserName
@@ -1765,8 +1813,24 @@ namespace Identity.GeneratedServices
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.3.0))")]
     public partial class UserSummaryContract : System.ComponentModel.INotifyPropertyChanged
     {
+        private string _whiteLabelKey;
         private string _userName;
         private string _password;
+
+        [Newtonsoft.Json.JsonProperty("whiteLabelKey", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string WhiteLabelKey
+        {
+            get { return _whiteLabelKey; }
+
+            set
+            {
+                if (_whiteLabelKey != value)
+                {
+                    _whiteLabelKey = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
 
         [Newtonsoft.Json.JsonProperty("userName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserName
