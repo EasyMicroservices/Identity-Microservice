@@ -17,14 +17,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
             var app = CreateBuilder(args);
             var build = await app.BuildWithUseCors<IdentityContext>((options) =>
             {
-                AddCors(options,
-                    "adahmsay.ir",
-                    "appgenadmin.adahmsay.ir",
-                    "contractgenerator.ir",
-                    "appgenadmin.contractgenerator.ir",
-                    "avalong.signalgo.ir",
-                    "signalgo.ir",
-                    "localhost");
+
             }, true);
 
             build.MapControllers();
