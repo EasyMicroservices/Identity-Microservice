@@ -50,7 +50,7 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
             };
         }
 
-        public virtual async Task<LoginResponseContract> Login(Contracts.Common.UserSummaryContract request)
+        public virtual async Task<(long UserId, string UniqueIdentity)> Login(Contracts.Common.UserSummaryContract request)
         {
             var _whiteLabelClient = _appUnitOfWork.GetWhiteLabelClient();
             var uniqueIdentity = await _whiteLabelClient.GetUniqueIdentityByKeyAsync(new WhiteLables.GeneratedServices.GuidGetByIdRequestContract
@@ -66,10 +66,7 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
             }).AsCheckedResult(x => x.Result);
 
 
-            return new LoginResponseContract
-            {
-                UserId = user.Id
-            };
+            return (user.Id, uniqueIdentity);
         }
 
         public Task<string> GetFullAccessPersonalAccessToken()

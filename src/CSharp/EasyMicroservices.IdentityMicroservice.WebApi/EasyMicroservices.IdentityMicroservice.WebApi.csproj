@@ -19,5 +19,12 @@
   <ItemGroup>
     <ProjectReference Include="..\EasyMicroservices.IdentityMicroservice.StartUp\EasyMicroservices.IdentityMicroservice.StartUp.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Content Update="web.config" CopyToPublishDirectory="Never" />
+    <Content Update="appsettings.json" CopyToPublishDirectory="Never" />
+    <Content Update="appsettings.*.json" CopyToPublishDirectory="Never" />
+    <Content Update="appsettings.$(MSBuildThisFileName).json" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
 
 </Project>
