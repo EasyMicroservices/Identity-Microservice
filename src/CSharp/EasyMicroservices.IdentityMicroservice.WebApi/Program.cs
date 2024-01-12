@@ -15,7 +15,18 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
         public static async Task Main(string[] args)
         {
             var app = CreateBuilder(args);
-            var build = await app.BuildWithUseCors<IdentityContext>(default, true);
+            var build = await app.BuildWithUseCors<IdentityContext>((options) =>
+            {
+                AddCors(options,
+                    "adahmsay.ir", 
+                    "appgenadmin.adahmsay.ir",
+                    "contractgenerator.ir",
+                    "appgenadmin.contractgenerator.ir",
+                    "avalong.signalgo.ir",
+                    "signalgo.ir",
+                    "localhost");
+            }, true);
+
             build.MapControllers();
             //host server need to get token from start
             using var scope = build.Services.CreateScope();
