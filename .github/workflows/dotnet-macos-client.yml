@@ -42,3 +42,10 @@ jobs:
       - name: Test
         run:  |
           dotnet test ./src/CSharp/EasyMicroservices.IdentityMicroservice.Client.sln --no-build --verbosity normal -f net7.0
+
+      - name: Cleanup
+        if: always() 
+        run:          echo "Shutting down Authentication Service with PID $AUTH_PID"
+          kill $AUTH_PID echo "Authentication Service shutdown failed"
+          echo "Shutting down WhiteLabel Service with PID $WHITELABEL_PID"
+          kill $WHITELABEL_PID echo "WhiteLabel Service shutdown failed"
