@@ -18,8 +18,6 @@ jobs:
             6.0.x
             7.0.x
             8.0.x
-        env:
-          DOTNET_INSTALL_DIR: /usr/share/dotnet
       - name: Clone and run Authentication
         run:  |
           git clone https://github.com/EasyMicroservices/Authentications-Microservice.git
