@@ -88,9 +88,10 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
             var response = await _identityHelper.Login(request);
 
             var user = await _appUnitOfWork.GetUserClient()
-                .GetByIdAsync(new Authentications.GeneratedServices.Int64GetByIdRequestContract
+                .GetByAsync(new Authentications.GeneratedServices.Int64GetByRequestContract
                 {
-                    Id = response.UserId
+                    Id = response.UserId,
+                    UniqueIdentity = response.UniqueIdentity
                 })
                 .AsCheckedResult(x => x.Result);
 
@@ -98,7 +99,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
                 .GetRolesByUserIdAsync(new Authentications.GeneratedServices.GetByIdAndUniqueIdentityRequestContract
                 {
                     Id = response.UserId,
-                    //UniqueIdentity = uniqueIdentity
+                    UniqueIdentity = response.UniqueIdentity
                 }).AsCheckedResult(x => x.Result);
 
             List<ClaimContract> claims = new();

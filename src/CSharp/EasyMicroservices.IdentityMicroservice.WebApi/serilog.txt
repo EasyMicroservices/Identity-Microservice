@@ -121,3 +121,22 @@ EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractExce
 2023-12-27 12:58:51.577 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMiIsInJvbGUiOiJPd25lciIsIm5iZiI6MTcwMzY2OTMzMSwiZXhwIjoxNzAzNzU1NzMxLCJpYXQiOjE3MDM2NjkzMzEsImlzcyI6Imh0dHBzOi8vZ2l0aHViLmNvbS9lYXN5bWljcm9zZXJ2aWNlcyIsImF1ZCI6ImVhc3ltaWNyb3NlcnZpY2VzIn0.CpgUWOam3lLfK37JMs_mFxecdKioivXA4L19Pf9PCik
 2023-12-29 12:52:17.107 +03:30 [DBG] Try login...
 2023-12-29 12:52:18.377 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMiIsInJvbGUiOiJPd25lciIsIm5iZiI6MTcwMzg0MTczOCwiZXhwIjoxNzAzOTI4MTM4LCJpYXQiOjE3MDM4NDE3MzgsImlzcyI6Imh0dHBzOi8vZ2l0aHViLmNvbS9lYXN5bWljcm9zZXJ2aWNlcyIsImF1ZCI6ImVhc3ltaWNyb3NlcnZpY2VzIn0.wNe0EYwpxeXn1iLyWISLa6B8o_FD-rYjR-DBF4glQqw
+2023-12-31 00:03:16.334 +03:30 [DBG] Try login...
+2023-12-31 00:03:22.319 +03:30 [ERR] Empty
+EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: No connection could be made because the target machine actively refused it. (localhost:1041)
+   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 83
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-31 00:05:27.386 +03:30 [DBG] Try login...
+2023-12-31 00:05:46.976 +03:30 [ERR] Empty
+EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: uniqueIdentity cannot be null or empty!
+   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 83
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2023-12-31 00:07:02.667 +03:30 [DBG] Try login...
+2024-01-01 23:44:35.443 +03:30 [DBG] Try login...
+2024-01-01 23:44:38.834 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMiIsInJvbGUiOiJPd25lciIsIm5iZiI6MTcwNDE0MDA3OCwiZXhwIjoxNzA0MjI2NDc4LCJpYXQiOjE3MDQxNDAwNzgsImlzcyI6Imh0dHBzOi8vZ2l0aHViLmNvbS9lYXN5bWljcm9zZXJ2aWNlcyIsImF1ZCI6ImVhc3ltaWNyb3NlcnZpY2VzIn0.0E0XB4VI9R5irmSoJOJlnG_StcmZUjRKR7o1Dnl8ZHc

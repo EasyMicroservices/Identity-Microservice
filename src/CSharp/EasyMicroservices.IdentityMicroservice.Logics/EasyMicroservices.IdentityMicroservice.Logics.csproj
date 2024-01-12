@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <RootNamespace>EasyMicroservices.IdentityMicroservice</RootNamespace>
   </PropertyGroup>
   
@@ -9,7 +9,7 @@
     <PackageReference Include="EasyMicroservices.Mapper.CompileTimeMapper" Version="0.0.0.6" />
     <PackageReference Include="EasyMicroservices.Mapper.SerializerMapper" Version="0.0.0.3" />
     <PackageReference Include="EasyMicroservices.Serialization.Newtonsoft.Json" Version="0.0.0.9" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.2.0" />
   </ItemGroup>
   
   <ItemGroup>

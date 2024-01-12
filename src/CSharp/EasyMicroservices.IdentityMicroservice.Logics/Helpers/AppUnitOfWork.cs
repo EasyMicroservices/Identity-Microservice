@@ -3,6 +3,7 @@ using Authentications.GeneratedServices;
 using Contents.GeneratedServices;
 using EasyMicroservices.Cores.AspEntityFrameworkCoreApi;
 using EasyMicroservices.Cores.Clients;
+using EasyMicroservices.Cores.Models;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
 using EasyMicroservices.Logger.Interfaces;
 using Microsoft.AspNetCore.Http;

@@ -5,6 +5,7 @@ using EasyMicroservices.IdentityMicroservice.Database.Contexts;
 using EasyMicroservices.IdentityMicroservice.Helpers;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
 using EasyMicroservices.IdentityMicroservice.Services;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Serilog;
 
 namespace EasyMicroservices.IdentityMicroservice.WebApi
@@ -14,7 +15,18 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
         public static async Task Main(string[] args)
         {
             var app = CreateBuilder(args);
-            var build = await app.BuildWithUseCors<IdentityContext>(default, true);
+            var build = await app.BuildWithUseCors<IdentityContext>((options) =>
+            {
+                AddCors(options,
+                    "adahmsay.ir", 
+                    "appgenadmin.adahmsay.ir",
+                    "contractgenerator.ir",
+                    "appgenadmin.contractgenerator.ir",
+                    "avalong.signalgo.ir",
+                    "signalgo.ir",
+                    "localhost");
+            }, true);
+
             build.MapControllers();
             //host server need to get token from start
             using var scope = build.Services.CreateScope();
@@ -24,7 +36,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
             await build.RunAsync();
         }
 
-        static WebApplicationBuilder CreateBuilder(string[] args)
+        public static WebApplicationBuilder CreateBuilder(string[] args)
         {
             var app = StartUpExtensions.Create<IdentityContext>(args);
             app.Services.AddLogger((options) =>
@@ -46,6 +58,14 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
             return app;
         }
 
+        static void AddCors(CorsPolicyBuilder options, params string[] sites)
+        {
+            options.SetIsOriginAllowed((string origin) =>
+               sites.Any(x => new Uri(origin).Host.Equals(x, StringComparison.OrdinalIgnoreCase)))
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        }
 
         public static async Task Run(string[] args, Action<IServiceCollection> use)
         {
