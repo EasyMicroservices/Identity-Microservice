@@ -18,7 +18,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
             var build = await app.BuildWithUseCors<IdentityContext>((options) =>
             {
                 AddCors(options,
-                    "adahmsay.ir", 
+                    "adahmsay.ir",
                     "appgenadmin.adahmsay.ir",
                     "contractgenerator.ir",
                     "appgenadmin.contractgenerator.ir",
