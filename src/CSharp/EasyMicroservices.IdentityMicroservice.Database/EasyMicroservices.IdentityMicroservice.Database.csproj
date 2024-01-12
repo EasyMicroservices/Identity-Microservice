@@ -1,9 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <RootNamespace>EasyMicroservices.IdentityMicroservice</RootNamespace>
-    <IsPackable>false</IsPackable>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>true</IsPackable>
+
+    <Platforms>AnyCPU;x64;x86</Platforms>
+    <Authors>EasyMicroservices</Authors>
+    <Version>0.0.0.3</Version>
+    <Description>Identity Microservice Database</Description>
+    <Copyright>EasyMicroservices@gmail.com</Copyright>
+    <PackageTags>database,identity,login,register,services,asp,aspnet,auth,authentication,authentications</PackageTags>
+    <PackageProjectUrl>https://github.com/EasyMicroservices/Identity-Microservice</PackageProjectUrl>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

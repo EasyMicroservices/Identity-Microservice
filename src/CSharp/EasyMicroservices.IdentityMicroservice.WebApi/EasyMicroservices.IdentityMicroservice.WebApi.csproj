@@ -3,7 +3,16 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
-    <IsPackable>false</IsPackable>
+    <IsPackable>true</IsPackable>
+
+    <Platforms>AnyCPU;x64;x86</Platforms>
+    <Authors>EasyMicroservices</Authors>
+    <Version>0.0.0.3</Version>
+    <Description>Identity Microservice WebApi</Description>
+    <Copyright>EasyMicroservices@gmail.com</Copyright>
+    <PackageTags>webapi,api,identity,login,register,services,asp,aspnet,auth,authentication,authentications</PackageTags>
+    <PackageProjectUrl>https://github.com/EasyMicroservices/Identity-Microservice</PackageProjectUrl>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EasyMicroservices.IdentityMicroservice.StartUp\EasyMicroservices.IdentityMicroservice.StartUp.csproj" />
+    <ProjectReference Include="..\EasyMicroservices.IdentityMicroservice.Logics\EasyMicroservices.IdentityMicroservice.Logics.csproj" />
   </ItemGroup>
   
   <ItemGroup>
