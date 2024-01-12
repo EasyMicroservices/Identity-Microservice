@@ -30,7 +30,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-
+  
   <ItemGroup>
     <ProjectReference Include="..\EasyMicroservices.IdentityMicroservice.WebApi\EasyMicroservices.IdentityMicroservice.WebApi.csproj" />
   </ItemGroup>
