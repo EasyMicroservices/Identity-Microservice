@@ -35,6 +35,7 @@ jobs:
           WHITELABEL_PID=$!
           echo "Started WhiteLabel Service with PID $WHITELABEL_PID"
           cd ..
+        shell: bash
       - name: Restore dependencies
         run: dotnet restore ./src/CSharp/EasyMicroservices.IdentityMicroservice.Client.sln
       - name: Build
