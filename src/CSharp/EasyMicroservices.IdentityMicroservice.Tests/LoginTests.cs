@@ -15,12 +15,12 @@ public class LoginTests : IClassFixture<AuthenticationTestFixture>
     [Fact]
     public async Task LoginOwnerAsync()
     {
-        await GetLoginOwnerAsync();
+        await GetLoginOwnerAsync(_authenticationClient);
     }
 
-    public async Task<string> GetLoginOwnerAsync()
+    public static async Task<string> GetLoginOwnerAsync(AuthenticationClient authenticationClient)
     {
-        var loginResult = await _authenticationClient.LoginByPersonalAccessTokenAsync(new LoginByPersonalAccessTokenRequestContract()
+        var loginResult = await authenticationClient.LoginByPersonalAccessTokenAsync(new LoginByPersonalAccessTokenRequestContract()
         {
             PersonalAccessToken = "ownerpat"
         }).AsCheckedResult(x => x.Result);
@@ -29,9 +29,9 @@ public class LoginTests : IClassFixture<AuthenticationTestFixture>
         return loginResult.Token;
     }
 
-    public async Task<string> GetLoginAsync(UserSummaryContract userSummaryContract)
+    public static async Task<string> GetLoginAsync(UserSummaryContract userSummaryContract, AuthenticationClient authenticationClient)
     {
-        var loginResult = await _authenticationClient.LoginAsync(userSummaryContract)
+        var loginResult = await authenticationClient.LoginAsync(userSummaryContract)
             .AsCheckedResult(x => x.Result);
         Assert.NotNull(loginResult);
         Assert.NotEmpty(loginResult.Token);
