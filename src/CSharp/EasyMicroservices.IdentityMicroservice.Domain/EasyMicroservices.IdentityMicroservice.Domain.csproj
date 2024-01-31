@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <PackageReference Include="EasyMicroservices.Cores.AspEntityFrameworkCoreApi" Version="0.0.1.42" />
+	  <PackageReference Include="EasyMicroservices.Cores.AspEntityFrameworkCoreApi" Version="0.0.1.43" />
 	  <PackageReference Include="EasyMicroservices.Logger" Version="0.0.0.6" />
   </ItemGroup>
 </Project>

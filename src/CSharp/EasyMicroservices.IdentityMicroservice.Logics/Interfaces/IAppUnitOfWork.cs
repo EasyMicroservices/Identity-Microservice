@@ -19,7 +19,6 @@ namespace EasyMicroservices.IdentityMicroservice.Interfaces
     {
         public IHttpContextAccessor GetHttpContextAccessor();
         public IJWTManager GetIJWTManager();
-        public IConfiguration GetConfiguration();
         public ILoggerProvider GetLogger();
         public IdentityHelper GetIdentityHelper();
         public ClaimManager GetClaimManager();
