@@ -25,7 +25,7 @@ public class AuthenticationTestFixture : IAsyncLifetime
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
             .Build();
         var app = Program.CreateBuilder(null);
-        string baseUrl = config.GetSection("Urls").Get<string>().Replace("*","localhost");
+        string baseUrl = config.GetSection("Urls").Get<string>().Replace("*", "localhost");
         app.Services.AddSingleton(s => new HttpClient());
         app.Services.AddTransient(s => new AuthenticationClient(baseUrl, s.GetService<HttpClient>()));
         app.Services.AddMvc().AddApplicationPart(typeof(AuthenticationController).Assembly);
