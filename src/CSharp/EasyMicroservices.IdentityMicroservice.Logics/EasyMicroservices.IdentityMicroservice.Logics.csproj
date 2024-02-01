@@ -1,8 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  
+  <Choose>
+    <When Condition="$(SolutionFileName.Contains('-net'))">
+      <PropertyGroup>
+        <TargetFramework>$(SolutionFileName.Split('-')[1].Replace('.sln',''))</TargetFramework>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+  
   <PropertyGroup>
     <RootNamespace>EasyMicroservices.IdentityMicroservice</RootNamespace>
-    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsPackable>true</IsPackable>
 
