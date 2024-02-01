@@ -7,6 +7,7 @@ using EasyMicroservices.IdentityMicroservice.WebApi.Controllers;
 using Identity.GeneratedServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyMicroservices.IdentityMicroservice.Tests.Fixtures;
@@ -20,8 +21,11 @@ public class AuthenticationTestFixture : IAsyncLifetime
 
     public async Task InitializeAsync()
     {
+        IConfiguration config = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            .Build();
         var app = Program.CreateBuilder(null);
-        string baseUrl = $"http://localhost:{2007}";
+        string baseUrl = config.GetSection("Urls").Get<string>().Replace("*","localhost");
         app.Services.AddSingleton(s => new HttpClient());
         app.Services.AddTransient(s => new AuthenticationClient(baseUrl, s.GetService<HttpClient>()));
         app.Services.AddMvc().AddApplicationPart(typeof(AuthenticationController).Assembly);
