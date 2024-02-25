@@ -1,6 +1,7 @@
 ﻿//using EasyMicroservices.IdentityMicroservice.Database.Entities;
 using EasyMicroservices.Cores.Relational.EntityFrameworkCore;
 using EasyMicroservices.Cores.Relational.EntityFrameworkCore.Intrerfaces;
+using EasyMicroservices.IdentityMicroservice.Database.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace EasyMicroservices.IdentityMicroservice.Database.Contexts
@@ -11,7 +12,7 @@ namespace EasyMicroservices.IdentityMicroservice.Database.Contexts
         {
         }
 
-        //public DbSet<IdentityEntity> Identity { get; set; }
+        public DbSet<ResetPasswordTokenEntity> ResetPasswordToken { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

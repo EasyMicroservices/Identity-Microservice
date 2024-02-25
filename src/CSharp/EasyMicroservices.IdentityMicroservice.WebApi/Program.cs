@@ -17,7 +17,8 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
             var app = CreateBuilder(args);
             var build = await app.BuildWithUseCors<IdentityContext>((options) =>
             {
-
+                AddCors(options,
+    "localhost");
             }, true);
 
             build.MapControllers();

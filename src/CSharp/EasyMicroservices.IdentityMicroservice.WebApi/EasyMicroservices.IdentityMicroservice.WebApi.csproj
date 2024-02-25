@@ -38,5 +38,11 @@
     <Content Update="appsettings.*.json" CopyToPublishDirectory="Never" />
     <Content Update="appsettings.$(MSBuildThisFileName).json" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="Templates\default.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>

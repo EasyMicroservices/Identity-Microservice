@@ -18,11 +18,11 @@
 
   <ItemGroup>
     <Folder Include="Database\Documents\" />
-    <Folder Include="Database\Entities\" />
   </ItemGroup>
   
   <ItemGroup>
 	  <PackageReference Include="EasyMicroservices.Configuration" Version="0.0.0.3" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.15" />
   </ItemGroup>
   
   <ItemGroup>

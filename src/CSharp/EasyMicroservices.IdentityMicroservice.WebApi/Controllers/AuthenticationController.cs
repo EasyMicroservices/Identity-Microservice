@@ -1,14 +1,18 @@
 ﻿using Contents.GeneratedServices;
+using EasyMicroservices.Cores.Database.Managers;
 using EasyMicroservices.IdentityMicroservice.Attributes;
 using EasyMicroservices.IdentityMicroservice.Contracts.Common;
 using EasyMicroservices.IdentityMicroservice.Contracts.Requests;
 using EasyMicroservices.IdentityMicroservice.Contracts.Responses;
+using EasyMicroservices.IdentityMicroservice.Database.Entities;
+using EasyMicroservices.IdentityMicroservice.Helpers;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
 using EasyMicroservices.ServiceContracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Text;
+using MessageContract = EasyMicroservices.ServiceContracts.MessageContract;
 
 namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
 {
@@ -230,5 +234,6 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
                 Token = token,
             };
         }
+
     }
 }
