@@ -41,7 +41,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
             var previousToken = await logic.GetAll(x => x.Where(o => o.UniqueIdentity.StartsWith(user.UniqueIdentity)));
 
             if (!previousToken.IsSuccess)
-                await logic.UpdateBulkChangedValuesOnly(previousToken.Result.Select(x => new ResetPasswordTokenContract { Id = x.Id, HasConsumed = true}).ToList());
+                await logic.UpdateBulkChangedValuesOnly(previousToken.Result.Select(x => new ResetPasswordTokenContract { Id = x.Id, HasConsumed = true }).ToList());
 
             string token = SecurityHelper.Hash(Guid.NewGuid().ToString());
 
