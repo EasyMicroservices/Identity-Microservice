@@ -82,6 +82,11 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
             return InternalLogin(new RoleClient(GetValue("Authentication"), CurrentHttpClient));
         }
 
+        public ResetPasswordTokenClient GetResetPasswordTokenClientClient()
+        {
+            return InternalLogin(new ResetPasswordTokenClient(GetValue("Authentication"), CurrentHttpClient));
+        }
+
         public PersonalAccessTokenClient GetPersonalAccessTokenClientClient()
         {
             return InternalLogin(new PersonalAccessTokenClient(GetValue("Authentication"), CurrentHttpClient));

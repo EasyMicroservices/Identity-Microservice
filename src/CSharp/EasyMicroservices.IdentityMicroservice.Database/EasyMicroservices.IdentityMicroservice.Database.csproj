@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <Folder Include="Database\Documents\" />
+    <Folder Include="Database\Entities\" />
   </ItemGroup>
   
   <ItemGroup>

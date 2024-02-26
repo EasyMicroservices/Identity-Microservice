@@ -4,7 +4,6 @@ using EasyMicroservices.IdentityMicroservice.Attributes;
 using EasyMicroservices.IdentityMicroservice.Contracts.Common;
 using EasyMicroservices.IdentityMicroservice.Contracts.Requests;
 using EasyMicroservices.IdentityMicroservice.Contracts.Responses;
-using EasyMicroservices.IdentityMicroservice.Database.Entities;
 using EasyMicroservices.IdentityMicroservice.Helpers;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
 using EasyMicroservices.ServiceContracts;

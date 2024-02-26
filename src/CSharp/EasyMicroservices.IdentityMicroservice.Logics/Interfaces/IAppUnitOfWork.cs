@@ -25,6 +25,7 @@ namespace EasyMicroservices.IdentityMicroservice.Interfaces
         public LanguageClient GetLanguageClient();
         public UserClient GetUserClient();
         public RoleClient GetRoleClient();
+        public ResetPasswordTokenClient GetResetPasswordTokenClientClient();
         public PersonalAccessTokenClient GetPersonalAccessTokenClientClient();
         public WhiteLabelClient GetWhiteLabelClient();
     }
