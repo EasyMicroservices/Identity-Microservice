@@ -20,3 +20,39 @@
 2024-02-25 22:23:23.097 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg4ODcyMDMsImV4cCI6MTcwODk3MzYwMywiaWF0IjoxNzA4ODg3MjAzLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.DdqRpKWMe9zRutgxeI1gr8vgh-3Aogo6dhIw7t1YBZ8
 2024-02-25 22:32:30.589 +03:30 [DBG] Try login...
 2024-02-25 22:32:30.833 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg4ODc3NTAsImV4cCI6MTcwODk3NDE1MCwiaWF0IjoxNzA4ODg3NzUwLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.05DzNbV6t6AJLfcsqgsWDaBYI0Ucu3qQ81sppIyoaqU
+2024-02-26 18:23:18.227 +03:30 [DBG] Try login...
+2024-02-26 18:23:21.890 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NTkyMDEsImV4cCI6MTcwOTA0NTYwMSwiaWF0IjoxNzA4OTU5MjAxLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.vfZLSYmsZDrlhAT0qosYhzLrRQufN_CAfNIEUb62uc8
+2024-02-26 20:08:44.993 +03:30 [DBG] Try login...
+2024-02-26 20:08:49.378 +03:30 [ERR] Empty
+System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:1044)
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|281_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.HttpConnectionWaiter`1.WaitForConnectionAsync(Boolean async, CancellationToken requestCancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Authentications.GeneratedServices.UserClient.GetUserByPersonalAccessTokenAsync(PersonalAccessTokenRequestContract body, CancellationToken cancellationToken)
+   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Repos\EasyMicroservices\Microservices\Identity-Microservice\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 80
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Repos\EasyMicroservices\Microservices\Identity-Microservice\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2024-02-26 20:13:36.433 +03:30 [DBG] Try login...
+2024-02-26 20:13:37.516 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NjU4MTcsImV4cCI6MTcwOTA1MjIxNywiaWF0IjoxNzA4OTY1ODE3LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.dk_K7d-rVq4tSxq-gg95H_iV3Fcg3V8ns4qdcJwRbuA
+2024-02-26 20:22:45.853 +03:30 [DBG] Try login...
+2024-02-26 20:22:46.220 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NjYzNjYsImV4cCI6MTcwOTA1Mjc2NiwiaWF0IjoxNzA4OTY2MzY2LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.t3eMDLSw2cTmdaBZEn-Tu48FDZwkpHFj7Gey9YEDbec
+2024-02-26 20:24:11.838 +03:30 [DBG] Try login...
+2024-02-26 20:24:12.110 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NjY0NTIsImV4cCI6MTcwOTA1Mjg1MiwiaWF0IjoxNzA4OTY2NDUyLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.Ur9ucmR4LHL-jnUt396VSr_E7Xz3Y6CWqAmc6vnFT_E
+2024-02-26 20:24:29.061 +03:30 [DBG] Try login...
+2024-02-26 20:24:29.341 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NjY0NjksImV4cCI6MTcwOTA1Mjg2OSwiaWF0IjoxNzA4OTY2NDY5LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.5Jn6KZhZ1nzIEgt3oHVZt71PylCap_S10vpo1DcmDFA
+2024-02-26 20:24:37.028 +03:30 [DBG] Try login...
+2024-02-26 20:24:37.316 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NjY0NzcsImV4cCI6MTcwOTA1Mjg3NywiaWF0IjoxNzA4OTY2NDc3LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.IOgFHOG2WZpstvvuoV4OU9H4bYD_WmYHiEulvU76NZQ
+2024-02-26 20:26:53.804 +03:30 [DBG] Try login...
+2024-02-26 20:26:57.451 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NjY2MTcsImV4cCI6MTcwOTA1MzAxNywiaWF0IjoxNzA4OTY2NjE3LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.eIEdchx6gVcKNp8C0KgYipFqoCRUXhjv-9cACrLwx8U
