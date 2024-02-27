@@ -35,6 +35,7 @@
   
   <ItemGroup>
 	  <PackageReference Include="EasyMicroservices.Configuration" Version="0.0.0.3" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.26" />
   </ItemGroup>
   
   <ItemGroup>

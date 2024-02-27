@@ -11,8 +11,6 @@ namespace EasyMicroservices.IdentityMicroservice.Database.Contexts
         {
         }
 
-        //public DbSet<IdentityEntity> Identity { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -1,72 +1,29 @@
-2023-12-24 23:25:35.512 +03:30 [DBG] Try login...
-2023-12-24 23:25:37.460 +03:30 [ERR] Empty
-EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
-   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-24 23:29:47.211 +03:30 [DBG] Try login...
-2023-12-24 23:29:47.831 +03:30 [ERR] Empty
-EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
-   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-24 23:30:00.288 +03:30 [DBG] Try login...
-2023-12-24 23:30:00.740 +03:30 [ERR] Empty
-EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
-   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-25 09:23:33.812 +03:30 [DBG] Try login...
-2023-12-25 09:23:34.496 +03:30 [ERR] Empty
-EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
-   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-26 19:23:34.795 +03:30 [DBG] Try login...
-2023-12-26 19:23:52.372 +03:30 [DBG] Try login...
-2023-12-26 19:24:33.990 +03:30 [DBG] Try login...
-2023-12-26 19:25:06.481 +03:30 [DBG] Try login...
-2023-12-26 19:25:07.965 +03:30 [ERR] Empty
-EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
-   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-26 19:38:34.986 +03:30 [DBG] Try login...
-2023-12-26 19:38:35.399 +03:30 [ERR] Empty
-EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
-   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-26 19:42:07.241 +03:30 [DBG] Try login...
-2023-12-26 19:42:07.634 +03:30 [ERR] Empty
-EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
-   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-26 19:47:14.974 +03:30 [DBG] Try login...
-2023-12-26 19:47:15.900 +03:30 [ERR] Empty
-EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
-   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 69
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-26 21:07:52.200 +03:30 [DBG] Try login...
-2023-12-26 21:07:56.740 +03:30 [ERR] Empty
+2024-02-25 00:19:30.670 +03:30 [DBG] Try login...
+2024-02-25 00:19:31.694 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg4MDc3NzEsImV4cCI6MTcwODg5NDE3MSwiaWF0IjoxNzA4ODA3NzcxLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.PzQBqAho5oTGyQ7eheAhw8f1in031qgtGr-sn_APyI8
+2024-02-25 00:34:17.207 +03:30 [DBG] Try login...
+2024-02-25 00:34:17.421 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg4MDg2NTcsImV4cCI6MTcwODg5NTA1NywiaWF0IjoxNzA4ODA4NjU3LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.v1A5ug9IDPNpyZ2pa6xQdi_4DD0C0KzQBVdcPiBXq9U
+2024-02-25 16:52:29.331 +03:30 [DBG] Try login...
+2024-02-25 16:52:33.179 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg4NjczNTMsImV4cCI6MTcwODk1Mzc1MywiaWF0IjoxNzA4ODY3MzUzLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.6Z4RPLWeaInds_lbMOiZjs78w_x3MEIfAmt7Z_ITI78
+2024-02-25 16:52:36.472 +03:30 [DBG] Try login...
+2024-02-25 16:52:36.736 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg4NjczNTYsImV4cCI6MTcwODk1Mzc1NiwiaWF0IjoxNzA4ODY3MzU2LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.WP2Z2dyukbPtV0Mpw6ERB4SvDGNAeqbVV2rIl2uOMLk
+2024-02-25 21:55:51.238 +03:30 [DBG] Try login...
+2024-02-25 21:55:51.545 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg4ODU1NTEsImV4cCI6MTcwODk3MTk1MSwiaWF0IjoxNzA4ODg1NTUxLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.mcIszSd1C_o6_0MyZfp3zhv86H2aJLtrsTsAgAAHieU
+2024-02-25 21:57:14.568 +03:30 [DBG] Try login...
+2024-02-25 21:57:14.818 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg4ODU2MzQsImV4cCI6MTcwODk3MjAzNCwiaWF0IjoxNzA4ODg1NjM0LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.GKwZ8I7r4nKu3rfy01aajPI0440W4S-gM1i3KAfGwgI
+2024-02-25 22:03:33.601 +03:30 [DBG] Try login...
+2024-02-25 22:03:33.844 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg4ODYwMTMsImV4cCI6MTcwODk3MjQxMywiaWF0IjoxNzA4ODg2MDEzLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.gARiR2969qqe17laeaZmzb015FAUwikDRPjHrWgFTkQ
+2024-02-25 22:12:42.621 +03:30 [DBG] Try login...
+2024-02-25 22:12:42.860 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg4ODY1NjIsImV4cCI6MTcwODk3Mjk2MiwiaWF0IjoxNzA4ODg2NTYyLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.NuoIQ-d7sjuUJIpZZxEyEDIXmXhXz5hcQQbXcLZ_UuU
+2024-02-25 22:14:27.142 +03:30 [DBG] Try login...
+2024-02-25 22:14:27.380 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg4ODY2NjcsImV4cCI6MTcwODk3MzA2NywiaWF0IjoxNzA4ODg2NjY3LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.w8G6sk04_ZPaQZPR-vmS4gQUrMLIQiLga2S04pUWOTQ
+2024-02-25 22:23:22.847 +03:30 [DBG] Try login...
+2024-02-25 22:23:23.097 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg4ODcyMDMsImV4cCI6MTcwODk3MzYwMywiaWF0IjoxNzA4ODg3MjAzLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.DdqRpKWMe9zRutgxeI1gr8vgh-3Aogo6dhIw7t1YBZ8
+2024-02-25 22:32:30.589 +03:30 [DBG] Try login...
+2024-02-25 22:32:30.833 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg4ODc3NTAsImV4cCI6MTcwODk3NDE1MCwiaWF0IjoxNzA4ODg3NzUwLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.05DzNbV6t6AJLfcsqgsWDaBYI0Ucu3qQ81sppIyoaqU
+2024-02-26 18:23:18.227 +03:30 [DBG] Try login...
+2024-02-26 18:23:21.890 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NTkyMDEsImV4cCI6MTcwOTA0NTYwMSwiaWF0IjoxNzA4OTU5MjAxLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.vfZLSYmsZDrlhAT0qosYhzLrRQufN_CAfNIEUb62uc8
+2024-02-26 20:08:44.993 +03:30 [DBG] Try login...
+2024-02-26 20:08:49.378 +03:30 [ERR] Empty
 System.Net.Http.HttpRequestException: No connection could be made because the target machine actively refused it. (localhost:1044)
  ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
    at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
@@ -81,62 +38,37 @@ System.Net.Http.HttpRequestException: No connection could be made because the ta
    at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
    at System.Net.Http.HttpConnectionPool.HttpConnectionWaiter`1.WaitForConnectionAsync(Boolean async, CancellationToken requestCancellationToken)
    at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
-   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
    at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
    at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
    at Authentications.GeneratedServices.UserClient.GetUserByPersonalAccessTokenAsync(PersonalAccessTokenRequestContract body, CancellationToken cancellationToken)
    at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 76
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-27 12:46:02.258 +03:30 [DBG] Try login...
-2023-12-27 12:46:03.405 +03:30 [ERR] Empty
-EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
-   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 76
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-27 12:50:03.975 +03:30 [DBG] Try login...
-2023-12-27 12:50:18.983 +03:30 [ERR] Empty
-EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
-   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 76
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-27 12:50:35.795 +03:30 [DBG] Try login...
-2023-12-27 12:51:13.304 +03:30 [DBG] Try login...
-2023-12-27 12:51:20.998 +03:30 [ERR] Empty
-EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: Item by predicate not found!
-   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 76
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-27 12:51:23.766 +03:30 [DBG] Try login...
-2023-12-27 12:51:59.481 +03:30 [DBG] Try login...
-2023-12-27 12:55:19.792 +03:30 [DBG] Try login...
-2023-12-27 12:55:24.221 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMiIsInJvbGUiOiJPd25lciIsIm5iZiI6MTcwMzY2OTEyMCwiZXhwIjoxNzAzNzU1NTIwLCJpYXQiOjE3MDM2NjkxMjAsImlzcyI6Imh0dHBzOi8vZ2l0aHViLmNvbS9lYXN5bWljcm9zZXJ2aWNlcyIsImF1ZCI6ImVhc3ltaWNyb3NlcnZpY2VzIn0.dGmzIFraAlcYSEXY6zc14lY3Ivk1yX6siAObnV2EAr8
-2023-12-27 12:58:51.087 +03:30 [DBG] Try login...
-2023-12-27 12:58:51.577 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMiIsInJvbGUiOiJPd25lciIsIm5iZiI6MTcwMzY2OTMzMSwiZXhwIjoxNzAzNzU1NzMxLCJpYXQiOjE3MDM2NjkzMzEsImlzcyI6Imh0dHBzOi8vZ2l0aHViLmNvbS9lYXN5bWljcm9zZXJ2aWNlcyIsImF1ZCI6ImVhc3ltaWNyb3NlcnZpY2VzIn0.CpgUWOam3lLfK37JMs_mFxecdKioivXA4L19Pf9PCik
-2023-12-29 12:52:17.107 +03:30 [DBG] Try login...
-2023-12-29 12:52:18.377 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMiIsInJvbGUiOiJPd25lciIsIm5iZiI6MTcwMzg0MTczOCwiZXhwIjoxNzAzOTI4MTM4LCJpYXQiOjE3MDM4NDE3MzgsImlzcyI6Imh0dHBzOi8vZ2l0aHViLmNvbS9lYXN5bWljcm9zZXJ2aWNlcyIsImF1ZCI6ImVhc3ltaWNyb3NlcnZpY2VzIn0.wNe0EYwpxeXn1iLyWISLa6B8o_FD-rYjR-DBF4glQqw
-2023-12-31 00:03:16.334 +03:30 [DBG] Try login...
-2023-12-31 00:03:22.319 +03:30 [ERR] Empty
-EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: No connection could be made because the target machine actively refused it. (localhost:1041)
-   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 83
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-31 00:05:27.386 +03:30 [DBG] Try login...
-2023-12-31 00:05:46.976 +03:30 [ERR] Empty
-EasyMicroservices.ServiceContracts.Exceptions.InvalidResultOfMessageContractException: The MessageContract is not success, Summary: uniqueIdentity cannot be null or empty!
-   at EasyMicroservices.ServiceContracts.MessageContract.ThrowsIfFails()
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.ThrowsIfFails(Object result)
-   at EasyMicroservices.ServiceContracts.MessageContractExtensions.AsCheckedResult[T,T2](Task`1 task, Func`2 mapResult)
-   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 83
-   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Github\EasyMicroservices\Microservices\Identity\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
-2023-12-31 00:07:02.667 +03:30 [DBG] Try login...
-2024-01-01 23:44:35.443 +03:30 [DBG] Try login...
-2024-01-01 23:44:38.834 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMiIsInJvbGUiOiJPd25lciIsIm5iZiI6MTcwNDE0MDA3OCwiZXhwIjoxNzA0MjI2NDc4LCJpYXQiOjE3MDQxNDAwNzgsImlzcyI6Imh0dHBzOi8vZ2l0aHViLmNvbS9lYXN5bWljcm9zZXJ2aWNlcyIsImF1ZCI6ImVhc3ltaWNyb3NlcnZpY2VzIn0.0E0XB4VI9R5irmSoJOJlnG_StcmZUjRKR7o1Dnl8ZHc
+   at EasyMicroservices.IdentityMicroservice.Helpers.IdentityHelper.GetFullAccessPersonalAccessToken(String personalAccessToken) in D:\Repos\EasyMicroservices\Microservices\Identity-Microservice\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\Helpers\IdentityHelper.cs:line 80
+   at EasyMicroservices.IdentityMicroservice.BackgroundServices.InternalTokenGeneratorBackgroundService.GetToken(IAppUnitOfWork appUnitOfWork) in D:\Repos\EasyMicroservices\Microservices\Identity-Microservice\src\CSharp\EasyMicroservices.IdentityMicroservice.Logics\BackgroundServices\InternalTokenGeneratorBackgroundService.cs:line 37
+2024-02-26 20:13:36.433 +03:30 [DBG] Try login...
+2024-02-26 20:13:37.516 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NjU4MTcsImV4cCI6MTcwOTA1MjIxNywiaWF0IjoxNzA4OTY1ODE3LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.dk_K7d-rVq4tSxq-gg95H_iV3Fcg3V8ns4qdcJwRbuA
+2024-02-26 20:22:45.853 +03:30 [DBG] Try login...
+2024-02-26 20:22:46.220 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NjYzNjYsImV4cCI6MTcwOTA1Mjc2NiwiaWF0IjoxNzA4OTY2MzY2LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.t3eMDLSw2cTmdaBZEn-Tu48FDZwkpHFj7Gey9YEDbec
+2024-02-26 20:24:11.838 +03:30 [DBG] Try login...
+2024-02-26 20:24:12.110 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NjY0NTIsImV4cCI6MTcwOTA1Mjg1MiwiaWF0IjoxNzA4OTY2NDUyLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.Ur9ucmR4LHL-jnUt396VSr_E7Xz3Y6CWqAmc6vnFT_E
+2024-02-26 20:24:29.061 +03:30 [DBG] Try login...
+2024-02-26 20:24:29.341 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NjY0NjksImV4cCI6MTcwOTA1Mjg2OSwiaWF0IjoxNzA4OTY2NDY5LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.5Jn6KZhZ1nzIEgt3oHVZt71PylCap_S10vpo1DcmDFA
+2024-02-26 20:24:37.028 +03:30 [DBG] Try login...
+2024-02-26 20:24:37.316 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NjY0NzcsImV4cCI6MTcwOTA1Mjg3NywiaWF0IjoxNzA4OTY2NDc3LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.IOgFHOG2WZpstvvuoV4OU9H4bYD_WmYHiEulvU76NZQ
+2024-02-26 20:26:53.804 +03:30 [DBG] Try login...
+2024-02-26 20:26:57.451 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDg5NjY2MTcsImV4cCI6MTcwOTA1MzAxNywiaWF0IjoxNzA4OTY2NjE3LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.eIEdchx6gVcKNp8C0KgYipFqoCRUXhjv-9cACrLwx8U
+2024-02-27 10:05:15.174 +03:30 [DBG] Try login...
+2024-02-27 10:05:17.588 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDkwMTU3MTcsImV4cCI6MTcwOTEwMjExNywiaWF0IjoxNzA5MDE1NzE3LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.XonmCNS-_TGPFs3P_2CVj-siyKpEK3fli5dqZhfJ2-U
+2024-02-27 10:28:19.760 +03:30 [DBG] Try login...
+2024-02-27 10:28:20.732 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDkwMTcxMDAsImV4cCI6MTcwOTEwMzUwMCwiaWF0IjoxNzA5MDE3MTAwLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.5T9ESVfmG0RNXSjwFH5F1ppLLi9tmeM3tjHtLVDvDmE
+2024-02-27 10:32:38.346 +03:30 [DBG] Try login...
+2024-02-27 10:32:38.611 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDkwMTczNTgsImV4cCI6MTcwOTEwMzc1OCwiaWF0IjoxNzA5MDE3MzU4LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.EZQha_MpMazMD6-i06hjLEYPHPS2AtwVbEnRFflk6L4
+2024-02-27 11:37:06.357 +03:30 [DBG] Try login...
+2024-02-27 11:37:06.625 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDkwMjEyMjYsImV4cCI6MTcwOTEwNzYyNiwiaWF0IjoxNzA5MDIxMjI2LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.IbZSb9hidNnJ4VPXpXGDXJXEt012WodNq0fXymIy9BE
+2024-02-27 11:41:06.453 +03:30 [DBG] Try login...
+2024-02-27 11:41:06.727 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDkwMjE0NjYsImV4cCI6MTcwOTEwNzg2NiwiaWF0IjoxNzA5MDIxNDY2LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.danafaZ8zF_GKW-sG5FUXRWAS6Wc3DV7DxzBzTRZ6BI
+2024-02-27 11:43:56.413 +03:30 [DBG] Try login...
+2024-02-27 11:43:56.646 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDkwMjE2MzYsImV4cCI6MTcwOTEwODAzNiwiaWF0IjoxNzA5MDIxNjM2LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.5OsEKQUIfMp7OzoQOlh6t2LTXuWjwBKB4gKEMrYpK4Q
+2024-02-27 11:46:51.287 +03:30 [DBG] Try login...
+2024-02-27 11:46:51.566 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDkwMjE4MTEsImV4cCI6MTcwOTEwODIxMSwiaWF0IjoxNzA5MDIxODExLCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.5yQyUZJS40Ar5HiM13zt9wMWejAhd_KgtDMzAcnpPUA
+2024-02-27 11:48:25.020 +03:30 [DBG] Try login...
+2024-02-27 11:48:25.313 +03:30 [DBG] Login success eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJVbmlxdWVJZGVudGl0eSI6IjEtMi1kLTEiLCJyb2xlIjoiT3duZXIiLCJuYmYiOjE3MDkwMjE5MDUsImV4cCI6MTcwOTEwODMwNSwiaWF0IjoxNzA5MDIxOTA1LCJpc3MiOiJodHRwczovL2dpdGh1Yi5jb20vZWFzeW1pY3Jvc2VydmljZXMiLCJhdWQiOiJlYXN5bWljcm9zZXJ2aWNlcyJ9.F3aqS5Vs6Jkapn4GtqgQTOQfPArChxt_preZ43KP3BU

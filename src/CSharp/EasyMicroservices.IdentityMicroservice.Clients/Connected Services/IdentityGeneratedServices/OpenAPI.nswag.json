@@ -347,6 +347,153 @@
           }
         }
       }
+    },
+    "/api/ResetPassword/GenerateResetPasswordToken": {
+      "post": {
+        "tags": [
+          "ResetPassword"
+        ],
+        "operationId": "GenerateResetPasswordToken",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateResetPasswordTokenRequestContract"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateResetPasswordTokenRequestContract"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateResetPasswordTokenRequestContract"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerateResetPasswordTokenResponseContractMessageContract"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerateResetPasswordTokenResponseContractMessageContract"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenerateResetPasswordTokenResponseContractMessageContract"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ResetPassword/ValidateResetPasswordToken": {
+      "post": {
+        "tags": [
+          "ResetPassword"
+        ],
+        "operationId": "ValidateResetPasswordToken",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateResetPasswordTokenRequestContract"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateResetPasswordTokenRequestContract"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateResetPasswordTokenRequestContract"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageContract"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageContract"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageContract"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ResetPassword/ConsumeResetPasswordToken": {
+      "post": {
+        "tags": [
+          "ResetPassword"
+        ],
+        "operationId": "ConsumeResetPasswordToken",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsumeResetPasswordTokenRequestContract"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsumeResetPasswordTokenRequestContract"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsumeResetPasswordTokenRequestContract"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageContract"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageContract"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageContract"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -424,6 +571,20 @@
             "nullable": true
           },
           "value": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ConsumeResetPasswordTokenRequestContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
             "type": "string",
             "nullable": true
           }
@@ -518,6 +679,53 @@
           15,
           16
         ]
+      },
+      "GenerateResetPasswordTokenRequestContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "whiteLabelKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "expireTimeInSeconds": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GenerateResetPasswordTokenResponseContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "token": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GenerateResetPasswordTokenResponseContractMessageContract": {
+        "title": "MessageContract<GenerateResetPasswordTokenResponseContract>",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "isSuccess": {
+            "type": "boolean"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorContract"
+          },
+          "success": {
+            "$ref": "#/components/schemas/SuccessContract"
+          },
+          "result": {
+            "$ref": "#/components/schemas/GenerateResetPasswordTokenResponseContract"
+          }
+        }
       },
       "LoginByPersonalAccessTokenRequestContract": {
         "type": "object",
@@ -720,6 +928,16 @@
             "nullable": true
           },
           "password": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ValidateResetPasswordTokenRequestContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "token": {
             "type": "string",
             "nullable": true
           }

@@ -6,6 +6,9 @@ using EasyMicroservices.Cores.Clients;
 using EasyMicroservices.Cores.Models;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
 using EasyMicroservices.Logger.Interfaces;
+using EasyMicroservices.Security;
+using EasyMicroservices.Security.Interfaces;
+using EasyMicroservices.Security.Providers.HashProviders;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using WhiteLables.GeneratedServices;
 
 namespace EasyMicroservices.IdentityMicroservice.Helpers
@@ -28,6 +32,11 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
         public IConfiguration GetConfiguration()
         {
             return _service.GetService<IConfiguration>();
+        }
+
+        public SHA256HashProvider GetSHA256HashProvider()
+        {
+            return _service.GetService<SHA256HashProvider>();
         }
 
         public IdentityHelper GetIdentityHelper()
@@ -80,6 +89,11 @@ namespace EasyMicroservices.IdentityMicroservice.Helpers
         public RoleClient GetRoleClient()
         {
             return InternalLogin(new RoleClient(GetValue("Authentication"), CurrentHttpClient));
+        }
+
+        public ResetPasswordTokenClient GetResetPasswordTokenClientClient()
+        {
+            return InternalLogin(new ResetPasswordTokenClient(GetValue("Authentication"), CurrentHttpClient));
         }
 
         public PersonalAccessTokenClient GetPersonalAccessTokenClientClient()
