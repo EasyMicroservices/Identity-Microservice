@@ -1583,8 +1583,24 @@ namespace Identity.GeneratedServices
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.19.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.3.0))")]
     public partial class GenerateResetPasswordTokenRequestContract : System.ComponentModel.INotifyPropertyChanged
     {
+        private string _whiteLabelKey;
         private long _expireTimeInSeconds;
-        private string _uniqueIdentity;
+        private string _userName;
+
+        [Newtonsoft.Json.JsonProperty("whiteLabelKey", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string WhiteLabelKey
+        {
+            get { return _whiteLabelKey; }
+
+            set
+            {
+                if (_whiteLabelKey != value)
+                {
+                    _whiteLabelKey = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
 
         [Newtonsoft.Json.JsonProperty("expireTimeInSeconds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long ExpireTimeInSeconds
@@ -1601,16 +1617,16 @@ namespace Identity.GeneratedServices
             }
         }
 
-        [Newtonsoft.Json.JsonProperty("uniqueIdentity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string UniqueIdentity
+        [Newtonsoft.Json.JsonProperty("userName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UserName
         {
-            get { return _uniqueIdentity; }
+            get { return _userName; }
 
             set
             {
-                if (_uniqueIdentity != value)
+                if (_userName != value)
                 {
-                    _uniqueIdentity = value;
+                    _userName = value;
                     RaisePropertyChanged();
                 }
             }

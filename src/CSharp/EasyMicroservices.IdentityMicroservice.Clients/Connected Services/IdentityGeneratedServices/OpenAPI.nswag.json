@@ -684,11 +684,15 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
+          "whiteLabelKey": {
+            "type": "string",
+            "nullable": true
+          },
           "expireTimeInSeconds": {
             "type": "integer",
             "format": "int64"
           },
-          "uniqueIdentity": {
+          "userName": {
             "type": "string",
             "nullable": true
           }

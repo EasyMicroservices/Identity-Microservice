@@ -8,7 +8,8 @@ namespace EasyMicroservices.IdentityMicroservice.Contracts.Requests
 {
     public class GenerateResetPasswordTokenRequestContract
     {
+        public string WhiteLabelKey { get; set; }
         public long ExpireTimeInSeconds { get; set; }
-        public string UniqueIdentity { get; set; }
+        public string UserName { get; set; }
     }
 }

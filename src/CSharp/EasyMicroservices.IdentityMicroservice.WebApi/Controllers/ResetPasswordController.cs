@@ -36,11 +36,16 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
         public async Task<MessageContract<GenerateResetPasswordTokenResponseContract>> GenerateResetPasswordToken(GenerateResetPasswordTokenRequestContract request)
         {
             var client = _appUnitOfWork.GetResetPasswordTokenClientClient();
+            var _whiteLabelClient = _appUnitOfWork.GetWhiteLabelClient();
 
-            var user = await _appUnitOfWork.GetUserClient().GetByUniqueIdentityAsync(new Authentications.GeneratedServices.GetByUniqueIdentityRequestContract 
-            { 
-                UniqueIdentity = request.UniqueIdentity, 
-                Type = Authentications.GeneratedServices.GetUniqueIdentityType.Equals 
+            var uniqueIdentity = await _whiteLabelClient.GetUniqueIdentityByKeyAsync(new WhiteLables.GeneratedServices.GuidGetByIdRequestContract
+            {
+                Id = Guid.Parse(request.WhiteLabelKey)
+            }).AsCheckedResult(x => x.Result);
+
+            var user = await _appUnitOfWork.GetUserClient().GetUserByUserNameAsync(new Authentications.GeneratedServices.GetUserByUserNameRequestContract {
+                UserName = request.UserName,
+                UniqueIdentity = uniqueIdentity
             }).AsCheckedResult(x => x.Result);
 
             var previousToken = await client.GetAllByUniqueIdentityAsync(new Authentications.GeneratedServices.GetByUniqueIdentityRequestContract { UniqueIdentity = user.UniqueIdentity });;
