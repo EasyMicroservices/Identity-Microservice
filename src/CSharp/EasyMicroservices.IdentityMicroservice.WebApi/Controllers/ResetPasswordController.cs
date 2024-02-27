@@ -43,7 +43,8 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
                 Id = Guid.Parse(request.WhiteLabelKey)
             }).AsCheckedResult(x => x.Result);
 
-            var user = await _appUnitOfWork.GetUserClient().GetUserByUserNameAsync(new Authentications.GeneratedServices.GetUserByUserNameRequestContract {
+            var user = await _appUnitOfWork.GetUserClient().GetUserByUserNameAsync(new Authentications.GeneratedServices.GetUserByUserNameRequestContract
+            {
                 UserName = request.UserName,
                 UniqueIdentity = uniqueIdentity
             }).AsCheckedResult(x => x.Result);
