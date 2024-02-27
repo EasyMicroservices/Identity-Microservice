@@ -12,6 +12,7 @@ using Authentications.GeneratedServices;
 using Contents.GeneratedServices;
 using EasyMicroservices.Logger.Interfaces;
 using WhiteLables.GeneratedServices;
+using EasyMicroservices.Security.Providers.HashProviders;
 
 namespace EasyMicroservices.IdentityMicroservice.Interfaces
 {
@@ -20,6 +21,7 @@ namespace EasyMicroservices.IdentityMicroservice.Interfaces
         public IHttpContextAccessor GetHttpContextAccessor();
         public IJWTManager GetIJWTManager();
         public ILoggerProvider GetLogger();
+        public SHA256HashProvider GetSHA256HashProvider();
         public IdentityHelper GetIdentityHelper();
         public ClaimManager GetClaimManager();
         public LanguageClient GetLanguageClient();

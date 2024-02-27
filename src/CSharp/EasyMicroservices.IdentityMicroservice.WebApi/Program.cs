@@ -5,6 +5,7 @@ using EasyMicroservices.IdentityMicroservice.Database.Contexts;
 using EasyMicroservices.IdentityMicroservice.Helpers;
 using EasyMicroservices.IdentityMicroservice.Interfaces;
 using EasyMicroservices.IdentityMicroservice.Services;
+using EasyMicroservices.Security.Providers.HashProviders;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Serilog;
 
@@ -15,11 +16,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
         public static async Task Main(string[] args)
         {
             var app = CreateBuilder(args);
-            var build = await app.BuildWithUseCors<IdentityContext>((options) =>
-            {
-                AddCors(options,
-    "localhost");
-            }, true);
+            var build = await app.BuildWithUseCors<IdentityContext>(null, true);
 
             build.MapControllers();
             //host server need to get token from start
@@ -48,6 +45,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi
             app.Services.AddTransient((serviceProvider) => new ClaimManager(serviceProvider.GetService<IHttpContextAccessor>()));
             app.Services.AddTransient<IJWTManager, JWTManager>();
             app.Services.AddTransient<IdentityHelper>();
+            app.Services.AddTransient<SHA256HashProvider>();
             app.Services.AddHostedService<InternalTokenGeneratorBackgroundService>();
             return app;
         }

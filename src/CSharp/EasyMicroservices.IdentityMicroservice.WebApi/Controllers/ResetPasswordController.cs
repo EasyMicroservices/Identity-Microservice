@@ -56,7 +56,7 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
                     Items = previousToken.Result.Select(x => new ResetPasswordTokenContract { Id = x.Id, HasConsumed = true, Token = x.Token, ExpirationDateTime = x.ExpirationDateTime, UniqueIdentity = x.UniqueIdentity }).ToList()
                 });
 
-            string token = SecurityHelper.Hash(Guid.NewGuid().ToString());
+            string token = string.Join("", _appUnitOfWork.GetSHA256HashProvider().Compute(Encoding.UTF8.GetBytes(Guid.NewGuid().ToString())).Select(b => b.ToString("X2")));
 
             var addTokenResponse = await client.AddAsync(new ResetPasswordTokenContract
             {
