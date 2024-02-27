@@ -48,11 +48,12 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
                 UniqueIdentity = uniqueIdentity
             }).AsCheckedResult(x => x.Result);
 
-            var previousToken = await client.GetAllByUniqueIdentityAsync(new Authentications.GeneratedServices.GetByUniqueIdentityRequestContract { UniqueIdentity = user.UniqueIdentity });;
-            
+            var previousToken = await client.GetAllByUniqueIdentityAsync(new Authentications.GeneratedServices.GetByUniqueIdentityRequestContract { UniqueIdentity = user.UniqueIdentity }); ;
+
             if (previousToken.IsSuccess)
-                await client.UpdateBulkChangedValuesOnlyAsync(new ResetPasswordTokenContractUpdateBulkRequestContract {
-                    Items = previousToken.Result.Select(x => new ResetPasswordTokenContract { Id = x.Id, HasConsumed = true, Token = x.Token, ExpirationDateTime = x.ExpirationDateTime, UniqueIdentity = x.UniqueIdentity }).ToList() 
+                await client.UpdateBulkChangedValuesOnlyAsync(new ResetPasswordTokenContractUpdateBulkRequestContract
+                {
+                    Items = previousToken.Result.Select(x => new ResetPasswordTokenContract { Id = x.Id, HasConsumed = true, Token = x.Token, ExpirationDateTime = x.ExpirationDateTime, UniqueIdentity = x.UniqueIdentity }).ToList()
                 });
 
             string token = SecurityHelper.Hash(Guid.NewGuid().ToString());
