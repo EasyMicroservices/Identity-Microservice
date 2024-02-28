@@ -15,6 +15,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Security.Claims;
 using System.Text;
+using FailedReasonType = EasyMicroservices.ServiceContracts.FailedReasonType;
 using MessageContract = EasyMicroservices.ServiceContracts.MessageContract;
 
 namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
@@ -74,11 +75,20 @@ namespace EasyMicroservices.IdentityMicroservice.WebApi.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<MessageContract> ValidateResetPasswordToken(ValidateResetPasswordTokenRequestContract request)
+        public async Task<MessageContract<ValidateResetPasswordTokenResponseContract>> ValidateResetPasswordToken(ValidateResetPasswordTokenRequestContract request)
         {
             var client = _appUnitOfWork.GetResetPasswordTokenClientClient();
             var validateResponse = await client.GetValidTokenAsync(new GetValidTokenRequestContract { Token = request.Token });
-            return _appUnitOfWork.GetMapper().Map<MessageContract>(validateResponse);
+            if (!validateResponse.IsSuccess)
+                return (FailedReasonType.NotFound, "Token is not valid.");
+
+            var user = await _appUnitOfWork.GetUserClient().GetByUniqueIdentityAsync(new GetByUniqueIdentityRequestContract
+            {
+                UniqueIdentity = DefaultUniqueIdentityManager.CutUniqueIdentity(validateResponse.Result.UniqueIdentity, 4),
+                Type = Authentications.GeneratedServices.GetUniqueIdentityType.Equals
+            }).AsCheckedResult(x => x.Result);
+
+            return new ValidateResetPasswordTokenResponseContract { UserName = user.UserName };
         }
 
         [HttpPost]

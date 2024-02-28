@@ -387,4 +387,3 @@ target/
 
 # Dependency directories (remove the Identity below to include it)
 # vendor/
-/src/CSharp/EasyMicroservices.IdentityMicroservice.WebApi/serilog.txt
